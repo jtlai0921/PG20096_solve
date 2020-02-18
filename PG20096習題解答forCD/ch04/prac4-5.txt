@@ -1,0 +1,30 @@
+/*
+ ―琘獶璽计俱计计
+*/
+
+#include  <stdio.h>
+
+int main(void) 
+{
+    int  num, temp;
+    int  dig;			/* 计 */
+
+    do {
+        printf("叫块獶璽计俱计");
+        scanf("%d", &num);
+        if (num < 0)
+            puts("\a叫づ块璽计");
+    } while (num < 0);
+							    
+    temp = num;                              /* num0 */
+    dig = 0;
+
+    do {
+        temp /=  10; 		/* 计翴┕オ簿 */
+        dig ++ ;
+    } while (temp > 0);
+    printf("%d琌%d计\n", num, dig);
+
+    return (0);
+}
+

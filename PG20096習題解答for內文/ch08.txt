@@ -1,0 +1,354 @@
+練習問題8-1	
+請定義傳回x、y兩值之差的函式巨集。
+  diff(x, y)
+
+程式碼
+/*
+  求兩個數值差的函式形式巨集
+*/
+
+#include <stdio.h>
+
+#define diff(x, y) ((x) > (y) ? ((x) - (y))：((y) - (x)))
+
+int main(void)
+{
+    int n1, n2;
+    puts("請輸入兩個整數值。");
+    printf("整數值1：");    scanf("%d", &n1);
+    printf("整數值2：");    scanf("%d", &n2);
+
+    printf("兩數之差為%d。\n", diff(n1, n2));
+
+    return (0);
+}
+
+執行範例
+請輸入兩個整數值。
+整數值1：3
+整數值2：5
+兩數之差為2。
+
+
+
+
+練習問題8-2
+傳回x、y兩值之差的函式巨集可定義如下：
+	#define max(x, y)  (((x) > (y)) ? (x) : (y))
+請利用此巨集求出a、b、c、d四值中的最大值，並寫出下面兩個運算式的展開結果，且須加以驗證。
+	max(max(a, b), max(c, d))
+	max(max(max(a, b), c), d)
+
+
+
+
+練習問題8-3
+請定義type型態兩值對調的函式巨集。
+	swap(type, a, b)
+例如，若int型態變數x、y之值分別為5和10，呼叫出swap(int, x, y) 後，x、y須存入10和5。
+
+程式碼
+/*
+  兩值交換的函式巨集
+*/
+
+#include <stdio.h>
+
+#define swap(type, x, y) do ( type temp = x; x = y; y = temp; } while (0)
+
+int main(void)
+{
+    int na, nb;
+
+    puts("請輸入兩個整數。");
+    printf("整數A：");    scanf("%d", &na);
+    printf("整數B：");    scanf("%d", &nb);
+
+    swap(int, na, nb);      /* 交換整數值 */ 
+    puts("\n交換A與B的整數值。");
+    printf("整數A＝%d\n", na);
+    printf("整數B＝%d\n", na);  
+
+    return (0);
+}
+   
+
+
+執行範例
+請輸入兩個整數。
+整數A：5
+整數B：10
+
+交換A與B的整數值。
+整數A＝10
+整數B＝5
+
+
+
+練習問題8-4
+請設計一個程式，使其得以自由定義並使用可表示性別或季節等的列舉。
+
+程式碼
+/*
+  顯示選擇的季節
+*/
+
+#include <stdio.h>
+
+enum season ( Spring, Summer, Fall, Winter, Invalid);
+
+/*--- 春 ---*/
+void spring(void)
+{
+    puts("春天賞花");
+}
+ 
+/*--- 夏 ---*/
+void summer(void)
+{
+    puts("夏吹涼風");
+}
+
+/*--- 秋 ---*/
+void fall(void)
+{
+    puts("秋天賞月");
+}
+
+/*--- 冬 ---*/
+void summer(void)
+{
+    puts("冬天賞雪");
+}  
+
+/*--- 選擇季節 ---*/
+enum season select(void)
+{
+    int tmp;
+  
+    do {
+        printf("0...春   1...夏   2...秋   3...冬   4...結束：");
+        scanf("%d", &tmp);
+    } while (tmp < Spring || tmp > Invalid);
+    return (tmp);
+}
+
+int main(void)
+{
+    enum season selected;
+
+    do {
+        switch (selected = select()) {
+         case Spring : spring();    break;    /* 春 */
+         case Summer : summer();    break;    /* 夏 */
+         case Fall   : fall();      break;    /* 秋 */
+         case Winter : winter();    break;    /* 冬 */
+        }
+    } while (selected != Invalid);
+
+    return (0);
+}
+
+
+執行範例
+0...春   1...夏   2...秋   3...冬   4...結束：0
+春天賞花
+0...春   1...夏   2...秋   3...冬   4...結束：2
+秋天賞月
+0...春   1...夏   2...秋   3...冬   4...結束：4
+
+
+
+練習問題8-5
+傳回整數n的階乘的函式
+	int fact(int n)  { /* ... */ }
+請定義上述函式，但不可使用遞迴功能。
+
+程式碼
+/*
+    求階乘函式（非遞迴版）
+*/
+
+#include <stdio.h>
+
+/*--- 傳回階乘值（非遞迴版） ---*/
+int fact(int n)
+{
+    int f = 1;
+
+    while (n > 0)
+        f *= n--;
+    return (f);
+}
+
+int main(void)
+{
+    int num;
+
+    printf("請輸入整數：");
+    scanf("%d", &num);
+
+    printf("該數的階乘為%d。\n", fact(num));
+
+    return (0);
+}
+
+執行範例
+請輸入整數：3
+該數的階乘為6。
+
+
+
+
+練習問題8-6
+求自相異的n個整數中取出r個整數所組合的數字nCr的函式
+	int combination(int n, int r)  { /* ... */ }
+請設計上述函式。但nCr之定義如下：
+	nCr = n-1Cr-1 + n-1Cr (但 nC0 = nCn = 1、 nC1 = 0)
+
+程式碼
+/*
+  求組合的數值
+*/
+
+#include <stdio.h>
+
+/*--- 傳回從相異n個整數中r個整數的組合之數 ---*/
+
+int combination(int n, int r)
+{
+    if (r == 0 || r == n)
+        return (1);
+    else if (r == 1)
+        return (n);
+    return (combination(n - 1, r - 1) + combination(n - 1, r));
+}
+
+int main(void)
+{
+    int n, r;
+
+    puts("求從相異n個整數中r個整數的組合之數。");
+    printf("n：");    scanf("%d", &n);
+    printf("r：");    scanf("%d", &r);
+
+    printf("組合的數字是%d。\n", combination(n, r));
+
+    return (0);
+}
+
+執行範例
+求從相異n個整數中r個整數的組合之數
+n：5
+r：3
+組合的數字是10。
+
+
+
+
+練習問題8-7
+請利用List 8-9的程式範例，再設計出一個程式能用*記號連續輸出的長條來表示數字字元的出現次數。
+
+List8-9
+/*
+計算從標準輸入的輸入過程中已出現過的數字字元（第二版）
+*/
+#include  <stdio.h>
+int main(void)
+{
+    int	 i, ch;
+    int	 cnt[10] = {0};	        /* 所有的元素以0進行初始化 */
+    while (1) {			/* 無限迴圈 */
+	ch = getchar();
+	if (ch == EOF) break;
+
+	if (ch >= '0'  &&  ch <= '9')
+            cnt[ch - '0']++;
+	}
+	puts("數字字元的出現次數");
+	for (i = 0; i < 10; i++)
+           printf("'%d':%d\n", i, cnt[i]);
+
+	return (0);
+}
+
+
+程式碼
+/*
+計算從標準輸入的輸入過程中已出現過的數字字元（第二版）
+*/
+#include  <stdio.h>
+
+int main(void)
+{
+    int	 i, j, ch;
+    int	 cnt[10] = {0};	        /* 數字字元出現的次數 */
+
+    while (1) {			/* 無限迴圈 */
+	ch = getchar();
+	if (ch == EOF) break;
+
+	if (ch >= '0'  &&  ch <= '9')
+  	    cnt[ch - '0']++;
+	}
+
+	puts("數字字元的出現次數");
+	for (i = 0; i < 10; i++)
+ 	    printf("'%d':",i);
+            for (j = 0; j < cnt[i]; j++)
+                putchar('*');
+            putchar('\n');
+        }
+	return (0);
+}
+
+執行範例
+3.1415926535897932846
+ctrl * z
+數字字元的出現次數
+'0':
+'1':**
+'2':**
+'3':***
+'4':**
+'5':***
+'6':**
+'7':*
+'8':**
+'9':***
+
+
+
+
+
+練習問題8-8
+請設計一個程式，使其計算在標準輸入中所出現的行數。
+
+程式碼
+/*
+  顯示輸入中的換行數
+*/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int ch;
+    int n_count = 0;       /* 換行文字的數目 */
+ 
+    while ((ch = getchar()) |= EOF)
+        if (ch == '\n')
+            n_count++;
+
+    printf("行數：％d\n", n_count);
+
+    return (0);
+}
+
+
+執行範例
+Hello
+This is a pen.
+Ctrl + z
+行數：2
+

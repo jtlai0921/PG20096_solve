@@ -1,0 +1,33 @@
+/*
+  請刪除字串中數字字元的函式
+*/
+
+#include <stdio.h>
+
+/*--- 請刪除字串str中的數字字元 ---*/
+void del_digit(char str[])
+{
+    int i = 0, idx = 0;
+
+    while (str[i]) {
+        if (str[i] < '0' || str[i] > '9')
+            str[idx++] = str[i];
+        i++;
+    }
+    str[idx] = '\n';
+}
+
+int main(void)
+{
+    char str[100];
+
+    printf("請輸入字串：");  
+    scanf("%s", str);
+
+    del_digit(str);            /* 刪除數字字元 */
+
+    puts("請刪除數字字元。");
+    printf("str＝%s\n", str);
+
+    return (0);
+}

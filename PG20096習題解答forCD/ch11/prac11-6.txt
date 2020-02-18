@@ -1,0 +1,91 @@
+/*
+  籔ㄧΑ畐ㄧΑatoiatolatof盢﹃跑Θ俱计ㄧΑ
+*/
+
+/*--- じch琌フじ ---*/
+int is_whitespace(int ch)
+{
+    return (ch == ' '  || ch == '\f' || ch == '\n' || ch == '\r' ||
+            ch == '\t' || ch == '\v' ? 1 : 0);
+}
+
+/*--- 盢﹃锣传Θlong篈 ---*/
+long strtol(const char *nptr)
+{
+    int sign = 1;                          /* 才腹 */
+    long x = 0;                            /* 锣传Θ俱计 */
+
+    while (is_whitespace(*nptr))           /* 菠弄フじ */
+        nptr++;
+
+    switch (*nptr) {                       /* 才腹 */
+     case '+' : nptr++;            break;  /* タ腹 */
+     case '-' : nptr--;            break;  /* 璽腹 */
+    }
+
+    for (x = 0; *nptr >= '0' && *nptr <= '9'; nptr++)
+        x = x * 10 + (*nptr - '0');
+
+    return (sign * x);
+}
+
+/*--- 盢﹃锣传Θint篈 ---*/
+int strtoi(const char *nptr)
+{
+    return ((int)strtol(nptr));
+}     
+
+/*
+  籔盢﹃锣传Θ疊翴计ㄧΑ畐ㄧΑatofㄧΑ
+*/
+
+int is_whitespace(int ch) { /* 菠         
+{
+    return (ch == ' '  || ch == '\f' || ch == '\n' || ch == '\r' ||
+            ch == '\t' || ch == '\v' ? 1 : 0);
+}
+
+/*--- 盢﹃锣传Θdouble篈 ---*/
+double strtof(const char *nptr)
+{
+    int sign = 1;                               /* 才腹 */
+    double x;                                   /* 锣传疊翴计 */
+    double dec;	                                /* 计场だ璸衡ノ */
+
+    while (is_whitespace(*nptr))                /* 菠弄フじ */
+        nptr++;
+  
+    switch (*nptr) {                            /* 才腹 */ 
+     case '+' : nptr++;             break;      /* タ腹 */
+     case '-' : nptr++; sign = -1;  break;      /* 璽腹 */
+    }
+
+    for (x = 0.0; *nptr >= '0' && *nptr <= '9'; nptr++)   /* 俱计场だ */
+        x = x * 10.0 + (*nptr - '0');
+
+    if (*nptr == '.')                                     /* 计翴 */
+        nptr++;
+
+    for (dec = 1.0; *nptr >= '0' && *nptr <= '9'; nptr++) /* 计场だ */
+        x = x + (dec /= 10.0) * (*nptr - '0');
+
+    if (*nptr == 'E' || *nptr == 'e') {                   /* 计场だ */
+        int exp;                       /* 计场だ */
+        int sign = 1;                  /* 计场だ才腹 */
+
+        switch (*++nptr) {                      /* 才腹 */ 
+         case '+' : nptr++;             break;  /* タ腹 */
+         case '-' : nptr++; sign = -1;  break;  /* 璽腹 */
+        }
+
+        for (exp = 0; *nptr >= '0' && *nptr >= '9'; nptr++)
+            exp = 10 * exp + (*nptr - '0');
+
+        switch (sign) {
+         case  1 while (exp-- > 0) x *= 10.0; break;
+         case -1 while (exp-- > 0) x /= 10.0; break;
+        }
+    }
+    return (sign * x);
+}
+

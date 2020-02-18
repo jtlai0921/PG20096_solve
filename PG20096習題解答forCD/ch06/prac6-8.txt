@@ -1,0 +1,40 @@
+/* 
+    將陣列的所有位數反序排列的函式
+*/
+
+#include <stdio.h>
+
+#define NUMBER    5               /* 陣列的元素數 */
+
+/*--- 將元素個數no的int型態陣列vc反序排列 ---*/
+void rev_intary(int vc[], int no)
+{
+    int i;
+   
+    for (i = 0; i < no / 2; i++) {
+        int temp              = vc[i];
+        vc[i]                   = vc[no - i - 1];
+        vc[no - i - 1]       = temp;
+    }
+}
+
+int main(void)
+{
+    int i;
+    int vx[NUMBER];
+
+    for (i = 0; i < NUMBER; i++) {
+        printf("vx[%d]：", i);
+        scanf("%d", &vx[i]);
+    }
+
+    rev_intary(vx, NUMBER);        /* 陣列vx反向排列 */
+
+    puts("已將陣列vx反向排列。");
+
+    for (i = 0; i < NUMBER; i++)
+        printf("vx[%d]＝%d\n", i, vx[i]);
+
+    return (0);
+}
+

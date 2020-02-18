@@ -1,0 +1,526 @@
+練習問題3-1
+請寫出一個程式使其輸出結果如右所示。如果右方整數可以除盡左方整數，則輸出「B是A的約數」；若否，則輸出「B不是A的約數」。
+
+顯示結果(for問題)
+請輸入兩個整數值。
+整值A：12
+整值B：6
+B是A的約數。
+
+程式碼
+/*
+　輸入整數A與B，並調查B是否為A的約數？
+*/										
+#include  <stdio.h>	
+int main(void)	
+{
+    int na, nb;
+    puts("請輸入兩個整數值。");
+    printf("整數值A：");     scanf("%d", &na);
+    printf("整數值B：");     scanf("%d", &nb);
+
+    if (na % nb)
+         puts("B不是A的約數。");
+    else
+         puts("B是A的約數。");
+
+    return (0);
+}
+
+
+執行範例
+請輸入兩個整數值。
+整值A：12
+整值B：6
+B是A的約數。
+
+
+
+練習問題3-2
+請寫出一個程式，確認等號運算子和關係運算子之值為1或0。
+
+程式碼
+/*
+    顯示等號運算子和關係運算子之值
+*/
+
+/*
+　 輸出兩個整數中較大者之值
+*/										
+#include  <stdio.h>	
+int main(void)	
+{
+    int na, nb;
+    puts("請輸入兩個整數。");
+    printf("整數A：");	   scanf("%d", &na);
+    printf("整數B：");	   scanf("%d", &nb);
+    
+    printf("A == B = %d\n", na == nb);
+    printf("A != B = %d\n", na != nb);
+    printf("A <  B = %d\n", na <  nb);
+    printf("A >  B = %d\n", na >  nb);
+    printf("A <= B = %d\n", na <= nb);
+    printf("A >= B = %d\n", na >= nb);
+
+    return (0);
+}
+
+執行範例
+請輸入兩個整數。
+整數A：12
+整數B：6
+A == B = 0
+A != B = 1
+A <  B = 0
+A >  B = 1
+A <= B = 0
+A >= B = 1
+
+
+
+練習問題3-3
+請寫出一個程式使其輸出結果為該整數的絕對值。
+
+顯示結果（for 問題）
+請輸入整數：-8
+其絕對值是：8 
+
+程式碼
+/*
+    顯示讀取整數的絕對值
+*/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int num;
+
+    printf("請輸入整數：");
+    scanf("%d", &num);
+
+    if (num < 0)		/*計算整數的絕對值*/
+        num = -num;
+
+    printf("其絕對值是：%d\n", num);
+
+    return (0);
+}
+
+執行範例
+請輸入整數：-8
+其絕對值是：8 
+
+
+
+
+練習問題3-4
+請寫出一個程式，若兩個整數之值相等，則輸出「A等於B」；若A較大，則輸出「A大於B」；若B較大，則輸出「B大於A」。(如右所示)
+
+顯示結果（for 問題)
+請輸入兩個整數。
+數值A：12
+數值B：6
+A大於B。
+
+程式碼
+/*
+　比較讀取的兩個整數並顯示其大小關係
+*/										
+#include  <stdio.h>	
+
+int main(void)	
+{
+    int na, nb;
+    puts("請輸入兩個整數。");
+    printf("整數A：");	   scanf("%d", &na);
+    printf("整數B：");	   scanf("%d", &nb);
+
+    if (na == nb)			/* A與B相等或... */
+        puts("A與B相等。");
+    else if (na > nb)    			/* A比B大或...？ */
+        puts("A比B大。);
+    else
+        puts("A比B小。);
+
+    return (0);
+}
+
+執行範例
+請輸入兩個整數。
+數值A：12
+數值B：6
+A大於B。
+
+
+
+練習問題3-5
+請寫出一個程式，使其求出三個整數中的最小值之後再輸出。
+
+程式碼
+/*
+　   求出三個整數的最小值後再輸出
+*/										
+#include  <stdio.h>	
+int main(void)	
+{
+    int n1, n2, n3, min;
+    puts("請輸入三個整數。");
+    printf("整數1：");	scanf("%d", &n1);
+    printf("整數2：");	scanf("%d", &n2);
+    printf("整數3：");	scanf("%d", &n3);
+
+    min = n1;		/* 求出三個整數的最小值 */
+    if (n2 > min) min = n2;
+    if (n3 > min) min = n3;
+
+    printf("最小值為%d。\n", min);
+
+    return (0);
+}
+
+執行範例
+請輸入三個整數。
+整數1：83
+整數2：45
+整數3：62
+最小值為45。
+
+
+
+
+練習問題3-6
+請寫出一個程式，使其求出四個整數中的最大值之後再輸出。
+
+程式碼
+/*
+　 求出三個整數中的最大值後再輸出
+*/										
+#include  <stdio.h>	
+int main(void)	
+{
+    int n1, n2, n3, n4, max;
+    puts("請輸入四個整數。");
+    printf("整數1：");	scanf("%d", &n1);
+    printf("整數2：");	scanf("%d", &n2);
+    printf("整數3：");	scanf("%d", &n3);
+    printf("整數4：");	scanf("%d", &n4);
+    
+    max = n1;    			/* 求四個整數的最大值 */
+    if(n2 > max) max = n2;
+    if(n3 > max) max = n3;
+    if(n4 > max) max = n4;
+
+    printf("最大值為%d。\n", max);
+
+    return (0);
+}
+
+執行範例
+請輸入四個整數。
+整數1：83
+整數2：45
+整數3：62
+整數4：35
+最大值為83。
+
+
+
+
+練習問題3-7
+請用if敘述取代條件運算子，改寫List3-14(求兩整數的差再輸出）的程式。
+
+List3-14
+/*
+　 求出兩個整數之差後再輸出(條件運算子)
+*/										
+#include  <stdio.h>	
+int main(void)	
+{
+    int n1,n2;
+    puts("請輸入兩個整數：");
+    printf("整數1：");	  scanf("%d", &n1);
+    printf("整數2：");	  scanf("%d", &n2);
+    printf("兩者之差為%d。\n",(n1 > n2) ? n1 - n2 : n2 - n1);
+    return (0);
+}
+
+
+程式碼
+/*
+　 求出兩個整數之差後再輸出(if敘述)
+*/										
+#include  <stdio.h>	
+
+int main(void)	
+{
+    int n1, n2, diff;
+
+    puts("請輸入兩個整數：");
+    printf("整數1：");      scanf("%d", &n1);
+    printf("整數2：");	   scanf("%d", &n2);
+
+    if (n1 > n2)                                          /* 求差 */
+        diff = n1 - n2;
+    else
+        diff = n2 - n1;
+
+    printf("兩者之差為%d。\n", diff);
+
+    return (0);
+}
+
+執行範例
+請輸入兩個整數：
+整數1：83
+整數2：45
+兩者之差為38。
+
+
+
+
+練習問題3-8
+請利用條件運算子取代if敘述，改寫練習3-5的程式。
+
+程式碼
+/*
+　   求出三個整數的最小值後再輸出
+*/										
+#include  <stdio.h>	
+
+int main(void)	
+{
+    int n1, n2, n3, min;
+    puts("請輸入三個整數。");
+    printf("整數1：");	scanf("%d", &n1);
+    printf("整數2：");	scanf("%d", &n2);
+    printf("整數3：");	scanf("%d", &n3);
+
+    min = n1;		/* 求出三個整數的最小值 */
+    if (n2 > min) min = n2;
+    if (n3 > min) min = n3;
+
+    printf("最小值為%d。\n", min);
+
+    return (0);
+}
+
+執行範例
+請輸入三個整數。
+整數1：83
+整數2：45
+整數3：62
+最小值為45。
+
+
+
+練習問題3-9
+請寫出一個程式，若三個整數之值均相等，則輸出「此三數值相等」；若任兩個之值相等，則輸出「有兩個數值相等」；若以上皆非，則輸出「此三值相異」。(如右所示)
+
+顯示結果(for 問題）
+請輸入三個數值。
+數值A：12
+數值B：6
+數值C：12
+有兩個數值相等。
+
+程式碼
+/*
+    讀取的三個整數值中有幾個值是一樣的
+*/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int na, nb, nc;
+  
+    puts("請輸入三個數值。");
+    printf("數值A：");    scanf("%d", &na);
+    printf("數值B：");    scanf("%d", &nb);
+    printf("數值C：");    scanf("%d", &nc);
+
+    if (na == nb && nb == nc)
+        puts("有三個數值相等。");
+    else if (na == nb || nb == nc || nc == na)
+        puts("有兩個數值相等。");  
+    else 
+        puts("三個數值互異。");
+
+    return (0);
+}
+
+執行範例
+請輸入三個數值。
+數值A：12
+數值B：6
+數值C：12
+有兩個數值相等。
+
+
+
+練習問題3-10
+請寫出一個程式，若兩個整數之差小於10，則輸出「兩數之差小於10」；若否，則輸出「兩數之差大於11」。(如右所示)但需使用邏輯OR運算子。 
+
+顯示結果（for 問題）
+請輸入兩個數值。
+數值A：12
+數值B：6
+兩數之差小於10。
+
+程式碼
+/*
+    調查讀取的兩個整數值的差是否超過11
+*/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int na, nb;
+  
+    puts("請輸入兩個數值。");
+    printf("數值A：");    scanf("%d", &na);
+    printf("數值B：");    scanf("%d", &nb);
+    
+    diff = na - nb;
+
+    if (diff > 10 || diff < -10)
+        puts("兩數之差大於11。");
+   else 
+        puts("兩數之差小於10。");
+
+    return (0);
+}
+
+
+執行範例
+請輸入兩個數值。
+數值A：12
+數值B：6
+兩數之差小於10。
+
+
+
+練習問題3-11
+請用switch敘述取代if敘述，改寫List3-4的程式(確認輸入之整數是奇數或偶數。
+
+list3-4
+/*
+　 輸入之整數是奇數或偶數？
+*/										
+#include  <stdio.h>	
+int main(void)	
+{
+    int no;
+    printf("請輸入一個整數：");
+    scanf("%d", &no);
+
+    if(no % 2)
+      puts("您所輸入的數字是奇數。");
+    else
+      puts("您所輸入的數字是偶數。");
+    return (0);
+}
+
+
+程式碼
+/*
+　輸入之整數是奇數或偶數？
+*/										
+#include  <stdio.h>	
+
+int main(void)	
+{
+    int no;
+
+    printf("請輸入一個整數：");
+    scanf("%d", &no);
+
+    switch(no % 2)
+      case 0 : puts("您所輸入的數字是偶數。");    break;
+      case 1 : puts("您所輸入的數字是奇數。");    break;
+    }
+
+    return (0);
+}
+
+執行範例(1)
+請輸入一個整數：39
+您所輸入的數字是奇數。
+
+執行範例(2)
+請輸入一個整數：16
+您所輸入的數字是偶數。
+
+
+
+
+練習問題3-12
+請用switch敘述取代if敘述，改寫List3-16的程式。
+
+List3-16
+/*
+   輸入月份的季節
+*/										
+#include  <stdio.h>
+
+int main(void)
+{
+    int month;
+    printf("請輸入月份：");
+    scanf("%d", &month);
+
+    if(month >= 3 && month <= 5)
+        puts("這個月份是春天。");
+    else if(month >= 6 && month <= 8)
+        puts("這個月份是夏天。");
+    else if(month >= 9 && month <= 11)
+        puts("這個月份是秋天。");
+    else if(month == 1 || month == 2 || month == 12)
+        puts("這個月份是冬天。");
+    else
+        puts("您輸入的月份不存在!\a");
+
+    return (0);
+}
+
+
+程式碼
+/*
+    輸入月份的季節
+*/										
+#include  <stdio.h>
+
+int main(void)
+{
+    int month;                                  /* 月 */
+    printf("請輸入月份：");
+    scanf("%d", &month);
+
+    switch (month) {                        /* 由month的值來分季節 */
+      case   3:
+      case   4:
+      case   5:  puts("這個月份是春天。");    break;
+      case   6:
+      case   7:
+      case   8:  puts("這個月份是夏天。");    break;
+      case   9:
+      case 10:
+      case 11:  puts("這個月份是秋天。");    break;
+      case 12:
+      case   1:  puts("這個月份是冬天。");    break;
+      case   2:
+      default :  puts("您輸入的月份不存在!\a");    break;
+    }
+
+    return (0);
+}         
+
+執行範例(1)
+請輸入月份：5
+這個月份是春天。
+
+執行範例(2)
+請輸入月份：8
+這個月份是夏天。

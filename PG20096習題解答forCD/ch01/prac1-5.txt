@@ -1,0 +1,18 @@
+
+/*
+  顯示輸入整數值減掉10後的新數值
+*/										
+#include  <stdio.h>	
+
+int main(void)	
+{
+    int no;
+
+    printf("請輸入整數：");
+    scanf("%d", &no);
+     
+    printf("該數值再減掉10是%d。\n", no - 10);	
+ 
+    return (0);
+}
+

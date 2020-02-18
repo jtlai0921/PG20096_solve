@@ -1,0 +1,36 @@
+/*
+    將陣列的所有元素反序複製到其他陣列
+*/
+
+#include <stdio.h>
+
+#define NUMBER    5        /* 陣列的元素數 */
+
+/*--- 將元素個數no的陣列v2反序存放到陣列v1 ----*/
+void intary_rcpy(int v1[ ], const int v2[ ], int no) 
+{
+    int i;
+
+    for (i = 0; i < no; i++)
+        v1[i] = v2[no - i - 1];
+}
+
+int main(void)
+{
+    int i;
+    int vx[NUMBER], vy[NUMBER];
+
+    for (i = 0; i < NUMBER; i++) {
+        printf("vx[%d]：", i);
+        scanf("%d", &vx[i]);
+    }
+
+    intary_rcpy(vy, vx, NUMBER);       /* 將陣列vx反序複製到vy */
+
+    puts("已將陣列vx的元素反序複製到vy。");
+
+    for (i = 0; i < NUMBER; i++)
+        printf("vy[%d]＝%d\n", i, vy[i]);
+  
+    return (0);
+}

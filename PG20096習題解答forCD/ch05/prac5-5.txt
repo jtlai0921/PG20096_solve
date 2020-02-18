@@ -1,0 +1,23 @@
+/*
+    輸入元素數為8的陣列各元素並反序輸出
+*/	
+#include  <stdio.h>	
+int main(void)	
+{
+    int i;
+    int vx[8];
+    for(i = 0; i < 8; i++)	{                  /* 將值讀入各元素 */
+        printf("vx[%d]:", i);
+        scanf("%d", &vx[i]);
+    }
+    for(i = 0; i < 2; i++)	{
+        int    temp	= vx[i];
+                vx[i]	= vx[7 - i];
+                vx[7 - i]	= temp;
+    }
+
+    for(i = 0; i < 8; i++)
+        printf("vx[%d]=%d\n", i, vx[i]);
+
+    return (0);
+}

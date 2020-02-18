@@ -1,0 +1,18 @@
+/*
+    確認由連續的指定儲存到變數中的值
+*/
+
+#include <stdio.h>
+
+int main(void)
+{
+    double a;
+    int       b;
+
+    a = b = 1.5;
+
+    printf("a的值 = %f\n", a);
+    printf("b的值 = %f\n", b);   
+
+    return (0);
+}

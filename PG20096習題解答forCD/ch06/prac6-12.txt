@@ -1,0 +1,34 @@
+/*
+    驗證具有靜態儲存區間的陣列中的所有元素均被0初始化
+*/
+
+#include <stdio.h>
+
+int a[3];              /* 靜態儲存區間（全部元素以0進行初始化）*/
+
+int main(void)
+{
+    int i;
+    static int b[3];  /* 靜態儲存區間（全部元素以0進行初始化）*/
+    int c[3];           /* 自動儲存區間（以不定值進行初始化）*/
+
+    printf("a ");
+    for (i = 0; i < 3; i++)
+        printf("%4d", a[i]);
+    putchar('\n');
+
+    printf("b ");
+    for (i = 0; i < 3; i++)
+       printf("%4d", b[i]);
+    putchar('\n');
+              
+    printf("c ");
+    for (i = 0; i < 3; i++)
+       printf("%4d", c[i]);
+    putchar('\n');
+
+    return (0);
+}
+
+
+    

@@ -1,0 +1,38 @@
+/*
+  調查字串中是否包含特定字元的函式
+*/
+
+#include <stdio.h>
+
+/*--- 傳回字串str中最先出現的字元c的註標值 ---*/
+int str_char(const char str[], int c)
+{
+    int i;
+
+    for (i = 0; str[i] != '\0'; i++)
+        if (str[i] == C)
+            return (i);
+    return (-1);
+}
+
+
+int main(void)
+{
+    int no;
+    char ch[10];
+
+    printf("請輸入英文字：");
+    scanf("%s", ch);
+
+    no = str_char("ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                  "abcdefghijklmnopqrstuvwxyz", ch[0]);
+
+if (no >= 0 && no <= 25)
+    printf("那是大寫字母的第%d個字元。\n", no + 1);
+else if (no >= 26 && no <= 51)
+    printf("那是小寫字母的第%d個字元。\n", no -25);
+else 
+    printf("那不是英文字母。\n");
+
+    return (0);
+}     

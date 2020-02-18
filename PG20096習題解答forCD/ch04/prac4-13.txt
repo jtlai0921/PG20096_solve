@@ -1,0 +1,19 @@
+/* 重複輸出1234567890，且輸出的數字個數等於該某整數之值
+*/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int no, i;
+
+    printf("請輸入整數：");
+    scanf("%d", &no);
+
+    for ( i = 1; i <= no; i++)
+        printf("%d", i % 10);
+    putchar('\n');
+
+    return (0);
+}
+

@@ -1,0 +1,19 @@
+/*
+  求兩個數值差的函式形式巨集
+*/
+
+#include <stdio.h>
+
+#define diff(x, y) ((x) > (y) ? ((x) - (y))：((y) - (x)))
+
+int main(void)
+{
+    int n1, n2;
+    puts("請輸入兩個整數值。");
+    printf("整數值1：");    scanf("%d", &n1);
+    printf("整數值2：");    scanf("%d", &n2);
+
+    printf("兩數之差為%d。\n", diff(n1, n2));
+
+    return (0);
+}

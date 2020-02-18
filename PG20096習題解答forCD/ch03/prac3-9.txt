@@ -1,0 +1,24 @@
+/*
+    弄俱计いΤ碭琌妓
+*/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int na, nb, nc;
+  
+    puts("叫块计");
+    printf("计A");    scanf("%d", &na);
+    printf("计B");    scanf("%d", &nb);
+    printf("计C");    scanf("%d", &nc);
+
+    if (na == nb && nb == nc)
+        puts("Τ计单");
+    else if (na == nb || nb == nc || nc == na)
+        puts("Τㄢ计单");  
+    else 
+        puts("计が钵");
+
+    return (0);
+}

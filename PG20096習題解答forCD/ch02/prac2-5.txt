@@ -1,0 +1,17 @@
+
+/*
+　 請輸入兩個數值，並輸出左邊的數值是右邊的數值的多少%(以實數表示）
+*/										
+#include  <stdio.h>	
+
+int main(void)	
+{
+    int na, nb;
+    puts("請輸入兩個整數。");
+    printf("整數A："); scanf("%d", &na);
+    printf("整數B："); scanf("%d", &nb);
+    printf("A是B的%f。\n", 100 * (double)na / nb);
+
+    return (0);
+}
+

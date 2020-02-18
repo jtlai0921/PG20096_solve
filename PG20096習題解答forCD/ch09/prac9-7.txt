@@ -1,0 +1,37 @@
+/*
+  由後向前反序輸出字串的函式
+*/
+
+#include <stdio.h>
+
+/*--- 傳回字串str的長度 ---*/
+
+unsigned str_length(const char str[])
+{
+    unsigned len = 0;
+    while (str[len])
+        len++;
+    return (len); 
+}
+
+/*--- 由後向前反序顯示字串 ---*/
+void put_rstring(const char str[])
+{
+    unsigned i = str_length(str);
+    while (i-- >0)
+        putchar(str[i]);
+}
+
+int main(void)
+{
+    char str[100];
+
+    printf("請輸入字串：");
+    scanf("%s", str);
+
+    printf("由後向前反序顯示為");
+    put_rstring(str);
+    puts("。");
+
+    return (0);
+}

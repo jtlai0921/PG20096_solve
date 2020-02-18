@@ -1,0 +1,34 @@
+*
+  ±N¦r¦ê¤ºªº­^¤å¦r¥À§ï¦¨¤j¼g¡ş¤p¼g
+*/										
+#include <ctype.h>
+#include <stdio.h>	
+/*--- §â¦r¦ê¤ºªº­^¤å¦r¥À§ï¦¨¤j¼g ---*/
+void str_toupper(char str[])
+{
+     while (*str)
+	 *str++ = toupper(*str);
+}
+
+/*---§â¦r¦ê¤ºªº­^¤å¦r¥À§ï¦¨¤p¼g---*/
+void str_tolower(char *str)
+{
+@      while (*str)
+	    *str++ = tolower(*str);
+}
+
+int main(void)
+{
+    char str[100];
+
+    printf("½Ğ¿é¤J¤@­Ó¦r¦ê¡G");
+    scanf("%s", str);
+
+    str_toupper(str);
+    printf("¤j¼g¡G%s\n", str);
+
+    str_tolower(str);
+    printf("¤p¼g¡G%s\n", str);
+
+    return (0);
+}

@@ -1,0 +1,18 @@
+/* 
+    直排輸出讀取之整數個數的*記號
+*/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int no;
+   
+    printf("請輸入一個正整數：");
+    scanf("%d", &no);
+
+    while (no-- > 0)        /*反覆n次 */
+        puts("*");              /* 顯示*並換行 */
+     
+    return (0);
+}

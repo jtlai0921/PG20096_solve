@@ -1,0 +1,26 @@
+/*
+    身高與標準體重的對應表
+*/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int     height;        /*身高 */
+    int     lower;         /*身高的下限（初始值） */
+    int     upper;         /*身高的上限（結束值） */
+    int     step;            /*增加幅度 */
+    double weight;     /* 體重 */
+
+    printf(" 從多少㎝？：");       scanf("%d", &lower);
+    printf(" 到多少㎝？：");       scanf("%d", &uppper);
+    printf(" 每隔多少㎝？：");   scanf("%d", &step);
+  
+    for (height = lower; height <= upper; height += step) {
+        weight = (height - 100) * 0.9;                                      /*計算標準體重 */
+        printf("%dcm %.2fkg\n", height, weight);                   /*顯示標準體重 */
+    }
+
+    return (0);
+}
+  

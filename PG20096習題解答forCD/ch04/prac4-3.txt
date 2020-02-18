@@ -1,0 +1,35 @@
+/*
+    讀取兩個整數值後，輸出大於較小整數、且小於較大整數的所有整數之加總
+*/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int n1, n2, no;
+    int upper, lower;
+    int sum = 0;
+
+    puts("請輸入兩個整數。");
+    printf("整數1：");    scanf("%d", &n1);
+    printf("整數2：");    scanf("%d", &n2);
+
+    if (n1 > n2)
+       upper = n1;                              /* 準備求n1到n2的加總 */
+       lower = n2;
+    } else {
+       upper = n2;                              /* 準備求n2到n1的加總 */
+       lower = n1;      
+    }
+
+    no = lower;                                 /* 計算從較小數值 */
+    do {
+        sum = sum + no;
+        no = no + 1;
+    } while (no <= upper);                /* 到較大值間所有整數的加總 */
+
+    print("所有大於%d且小於%d的整數之和為%d", lower, upper, sum);
+  
+    return (0);
+}   
+  

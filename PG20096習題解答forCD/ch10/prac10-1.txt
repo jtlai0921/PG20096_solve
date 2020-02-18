@@ -1,0 +1,71 @@
+/*
+  求讀取日期的前一天以及後一天的日期
+*/
+
+#include <stdio.h>
+
+int day[2][13] = {
+    {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31),
+    {0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31),
+};
+
+/*--- year若為閏年傳回1，否則傳回0 ---*/
+int isleap(int year)
+{
+    return (year % 4 == 0 && year % 100 != 0 || year % 400 == 0);
+}
+
+/*--- 求讀取日期前一天的日期 ---*/
+void yesterday(int *y, int *m, int *d)
+{
+    if (*d != 1)                       /*如果不是1日的話就遞減*d */
+       (*d)--;
+    else {
+        if (*m != 1)                   /* 1月以外的1日 */
+            (*m)--;  
+        else{                      /* 1月1日 */
+            (*y)--;
+            *m = 12;
+        }
+        *d = day[isleap(*y)][*m];
+    }
+}
+
+/*--- 求讀取日期後一天的日期 ---*/
+void tomorrow(int *y, int *m, int *d)
+{
+    if (*d != day[isleap(*y)][*m])     /*如果不是最後一天的話就遞減*d */
+       (*d)++;
+    else {
+        if (*m != 12)                  /* 12月以外的最後一天 */
+            (*m)++;  
+        else{                          /* 12月31日 */
+            (*y)++;
+            *m = 1;
+        }
+        *d = 1;
+    }
+}
+
+int main(void)
+{
+    int y, m, d;
+    int ay, am, ad;
+    int by, bm, bd;
+
+    printf("年：");    scanf("%d", &y);
+    printf("月：");    scanf("%d", &m);
+    printf("日：");    scanf("%d", &d);
+
+    ay = by = y;
+    am = bm = m;
+    ad = bd = d;    
+    
+    yesterday(&ay, &am, &ad);          /* 前一天 */
+    tomorrow(&by, &bm, &bd);           /* 後一天 */
+
+    printf("前一天：%d年%d月%d日\n", ay, am, ad);
+    printf("後一天：%d年%d月%d日\n", by, bm, bd);
+
+    return (0);
+}

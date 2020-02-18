@@ -1,0 +1,25 @@
+/*
+  會將字串重複輸出一次的函式  
+*/
+
+#include <stdio.h>
+
+/*--- 顯示字串（不換行）---*/
+void put_string(const char *str)
+{
+    while (*str)
+        putchar(*str++);
+}
+
+int main(void)
+{
+    char str[100];
+
+    printf("請數入字串：");
+    scanf("%s", str);
+
+    put_string(str);
+    putchar('\n');
+
+    return (0);
+}

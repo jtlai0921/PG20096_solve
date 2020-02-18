@@ -1,0 +1,20 @@
+/* 
+  將字串變成空字串
+*/
+
+#include <stdio.h>
+
+int main(void)
+{
+    char str[] = "ABC";
+
+    printf("str＝%s\n", str);        /* str是ABC" */
+
+    str[0] = '\0';                   /* 將空字元代入到陣列的最前面元素 */
+
+    puts("已將字串str改成空字串。");
+    printf("str＝%s\n", str);
+
+    return (0);                      /* str是空字串 */
+}
+

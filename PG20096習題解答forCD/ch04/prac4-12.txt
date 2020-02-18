@@ -1,0 +1,18 @@
+/*
+　求1至5之和後再輸出
+*/										
+#include  <stdio.h>	
+
+int main(void)	
+{
+    int i;
+    int sum = 0;		 /* 總和 */
+
+    for (i = 1; i <= 5; i++)
+        sum += i;	/* 將i從1開始遞增 */
+       		/* sum加上i */
+
+    printf("從1加到5的總和之值為%d。\n", sum);
+
+    return (0);
+}

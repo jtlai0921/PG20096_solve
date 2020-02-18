@@ -1,0 +1,19 @@
+/*
+  驗證不帶符號整數的算數運算不會產生溢值(overflow)
+*/
+
+#include <stdio.h>
+#include <limits.h>
+
+int main(void)
+{
+    unsigned x = UINT_MAX - 1;
+
+    printf("unsigned型態的最大值：%u\n", UINT_MAX);
+    printf("x = %u\n", x);
+
+    printf("x + 3 = %u\n", x + 3);
+    printf("x + 2 = %u\n", x * 2);
+
+    return (0);
+}

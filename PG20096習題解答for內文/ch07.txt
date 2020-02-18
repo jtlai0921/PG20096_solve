@@ -1,0 +1,358 @@
+練習問題7-1
+請設計一個程式，以驗證不帶符號整數左右位移後之值等於乘以或除以2的次方連乘積之後的值。
+
+程式碼
+/*
+  驗證不帶符號整數左右位移即等於乘以或除以2的次方連乘積
+*/
+
+#include <stdio.h>
+
+/*--- 2的no次方連乘積 ---*/
+unsigned pow2(unsigned no)
+{
+    unsigned pw = 1;
+
+    while (no--)
+        pw *= 2;
+    return (pw);
+}
+
+into main(void)
+{
+    unsigned m_pow, d_pow, l_sht, r_sht;
+    unsigned a, n;
+
+    printf("請輸入整數A：");    scanf("%u", &a);
+    printf("請問位移幾位元：");  scanf("%u", &n);  
+
+    m_pow = a * pow2(n);        /* 乘以2的n次方連乘積之後的值 */
+    d_pow = a / pow2(n);        /* 除以2的n次方連乘積之後的值 */
+
+    l_sht = a << n;             /* 向左位移n位元後的值 */
+    r_sht = a >> n;             /* 向右位移n位元後的值 */        
+
+    printf("A ×（2的%u次方連乘積）= %u\n", n, m_pow);
+    printf("A ÷（2的%u次方連乘積） = %u\n", n, d_pow);
+    printf("A << %u = %u\n", n, l_sht);
+    printf("A >> %u = %u\n", n, r_sht);
+
+    if (r_sht == d_pow && l_sht == m_pow)
+        printf("不帶符號整數%u左右位移%u位元，\n"
+             "等於乘以或除以2的%u次方連乘積。\n", a, n, n);
+
+return (0);
+}
+
+執行範例
+請輸入整數A：170
+請問位移幾位元：4
+A ×（2的4次方連乘積）= 2720
+A ÷（2的4次方連乘積）=10 
+A << 4 = 2720
+A >> 4 = 10
+不帶符號整數170左右位移4位元，
+等於乘以或除以2的4次方連乘積。
+
+
+
+練習問題7-2
+請設計兩個符合下列條件的函式：
+函式rrotate－－傳回將不帶符號整數x右移n位元後之值；
+函式lrotate－－傳回將不帶符號整數x左移n位元後之值。
+	unsigned rrotate (unsigned x, int n)	{ /* ... */ }
+	unsigned lrotate (unsigned x, int n)	{ /* ... */ }
+
+程式碼
+/*
+  將不帶符號整數x向左或向右位移
+*/
+
+#include <stdio.h>
+
+int count_bits(unsigned x)
+{
+    int count = 0;
+    while (x) {
+        if (x & lu) count++;
+        x >>= 1;
+    }
+    return (count);
+}
+
+/*--- 傳回unsigned型態的位元數 ---*/
+int int_bits(void)
+{
+    return (count_bits(~OU));
+}
+
+/*--- unsigned型態的位元內容 ---*/
+void print_bits(unsigned x)
+{
+    int i;
+    for (i = int_bits() - 1; i >= 0; i--)
+        putchar(((x >> i) & lU) ? '1' : '0');
+} 
+
+/*--- 傳回將x右移n位元後的值 ---*/
+unsignd rrotate(unsigned x, int n)
+{
+    int bits = int_bits();
+    n %= bits;
+    return (n ? (x >> n) | (x << (bits - n))：x);
+}
+
+/*--- 傳回將x左移n位元後的值 ---*/
+unsignd lrotate(unsigned x, int n)
+{
+    int bits = int_bits();
+    n %= bits;
+    return (n ? (x << n) | (x >> (bits - n))：x);
+}
+
+int main(void)
+{
+    unsigned nx, no;
+
+    printf("請輸入不帶符號整數：");         scanf("%u", &nx);
+    printf("請問要位移幾位元：");           scanf("%u", &no);         
+
+    printf("\n位移前   =");    printf_bits(nx);
+    printf("\n向右位移 =");    printf_bits(rrotate(nx, no));
+    printf("\n向左位移 =");    printf_bits(lrotate(nx, no));    
+    putchar('\n');
+
+    return (0);
+}     
+
+
+執行結果範例
+請輸入非負數整數：12345
+請問要位移幾位元：4
+
+位移前   =0011000000111001
+向右位移 =1001001100000011
+向左位移 =0000001110010011
+
+
+
+
+練習問題7-3
+請設計三個符合下列條件的函式：
+函式set－－傳回將不帶符號整數x的第pos位元改成1後之值；
+函式reset－－傳回將不帶符號整數x的第pos位元改成0後之值；
+函式inverse－－傳回將不帶符號整數x的第pos位元予以逐位元反轉後之值。
+	unsigned set (   unsigned x, int pos)	{ /* ... */ }
+	unsigned reset ( unsigned x, int pos)	{ /* ... */ }
+	unsigned inverse(unsigned x, int pos)	{ /* ... */ }
+
+程式碼
+/*
+  將不帶符號整數的位元做任意的操作
+*/
+
+#include <stdio.h>
+
+int count_bits(unsigned x)
+{
+    int count = 0;
+    while (x) {
+        if (x & lu) count++;
+        x >>= 1;
+    }
+    return (count);
+}
+
+/*--- 傳回unsigned型態的位元數 ---*/
+int int_bits(void)
+{
+    return (count_bits(~OU));
+}
+
+/*--- unsigned型態的位元內容 ---*/
+void print_bits(unsigned x)
+{
+    int i;
+    for (i = int_bits() - 1; i >= 0; i--)
+        putchar(((x >> i) & lU) ? '1' : '0');
+} 
+
+/*--- 傳回將x左移n位元後的值 ---*/
+unsignd lsft(unsigned x, int n)
+{
+    return ((n >= int_bits()) ? 0 : (x << n));
+}
+
+/*--- 傳回將x的第pos個位元改成1後的值 ---*/
+unsigned set(unsigned x, int pos)
+{
+    return (x | lift(lU, pos -1));
+}
+
+/*--- 傳回將x的第pos個位元改成0後的值 ---*/
+unsigned reset(unsigned x, int pos)
+{
+    return (x & ~lsft(lU, pos -1));
+}
+  
+/*--- 傳回將x的第pos個位元逐位元反轉後的值 ---*/
+unsigned inverse(unsigned x, int pos)
+{
+    return (x ^ lsft(lU, pos - 1));
+}
+
+int main(void)
+{
+    unsigned nx, pos;
+
+    puts("操作不帶符號整數x的第pos個位元。");
+    printf("請輸入非負數的整數x：");    scanf("%u", &nx);
+    printf("請輸入要操作的位元位置pos：");    scanf("%u", &pos);
+
+    printf("\nx             =");    printf_bits(nx);
+    printf("\nset(x, pos)   =");    printf_bits(set(nx, pos));
+    printf("\nreset(x, pos) =");    printf_bits(reset(nx, pos));    
+    printf("\ninverse(x, pos)=");    printf_bits(inverse(nx, pos));
+    putchar('\n');
+
+    return (0);
+}     
+
+
+執行結果範例
+操作不帶符號整數x的第pos個位元。
+請輸入非負數的整數x：12345
+請輸入要操作的位元位置pos：5
+
+x              =0011000000111001 
+set(x, pos)    =0011000000111001
+reset9x, pos)  =0011000000101001
+inverse(x, pos)=0011000000101001
+
+
+
+練習問題7-4
+請設計三個符合下列條件的函式：
+函式set_n－－傳回將不帶符號整數x的第pos位元起的n位元改成1後之值；
+函式reset_n－－傳回將不帶符號整數x的第pos位元起的n位元改成0後之值；
+函式inverse_n－－傳回將不帶符號整數x的第pos位元起的n位元予以逐位元反轉後之值。
+	unsigned set_n (   unsigned x, int pos, int n) { /* ... */ }
+	unsigned reset_n ( unsigned x, int pos, int n) { /* ... */ }
+	unsigned inverse_n(unsigned x, int pos, int n) { /* ... */ }
+
+程式碼
+/*
+  操作不帶符號整數的任意個連續的位元
+*/
+
+#include <stdio.h>
+
+int count_bits(unsigned x)
+{
+    int count = 0;
+    while (x) {
+        if (x & lu) count++;
+        x >>= 1;
+    }
+    return (count);
+}
+
+/*--- 傳回unsigned型態的位元數 ---*/
+int int_bits(void)
+{
+    return (count_bits(~OU));
+}
+
+/*--- unsigned型態的位元內容 ---*/
+void print_bits(unsigned x)
+{
+    int i;
+    for (i = int_bits() - 1; i >= 0; i--)
+        putchar(((x >> i) & lU) ? '1' : '0');
+} 
+
+/*--- 傳回將x左移n位元後的值 ---*/
+unsignd lsft(unsigned x, int n)
+{
+    return ((n >= int_bits()) ? 0 : (x << n));
+}
+
+/*--- 傳回將x的第pos個位元開始n位元改成1後的值 ---*/
+unsigned set_n(unsigned x, int pos, int n)
+{
+    return (x | lsft(~0, n), pos -1));
+}
+
+/*--- 傳回將x的第pos個位元開始n位元改成0後的值 ---*/
+unsigned reset(unsigned x, int pos, int n)
+{
+    return (x & ~lsft(~lsft(~0, n), pos -1));
+}
+  
+/*--- 傳回將x的第pos個位元開始的n位元逐位元反轉後的值 ---*/
+unsigned inverse(unsigned x, int pos)
+{
+    return (x ^ lsft(~lsft(~0, n), pos - 1));
+}
+
+int main(void)
+{
+   unsigned nx;
+   int pos, no;
+
+   puts("操作不帶符號整數x第pos個位元開始的no個位元。");
+   printf("請輸入非負數的整數x：");          scanf("%u", &nx);
+   printf("請輸入要操作的位元位置pos：");    scanf("%d", &pos);
+   printf("請輸入要操作的位元數no：");       scanf("%d", &no);    
+
+   printf("\nx                    ="); printf_bits(nx);
+   printf("\nset_n(x, pos, no)    ="); printf_bits(set_n(nx, pos, no));
+   printf("\nreset_n(x, pos, no)  ="); printf_bits(reset_n(nx, pos, no)); 
+   printf("\ninverse_n(x, pos, no)="); printf_bits(inverse(nx, pos, no));
+   putchar('\n');
+
+   return (0);
+}     
+
+執行結果範例
+操作不帶符號整數x第pos個位元開始的no個位元。
+請輸入非負數的整數x：12345
+請輸入要操作的位元位置pos：5
+請輸入要操作的位元數no：3
+
+x                    =0011000000111001
+set_n(x, pos, no)    =0011000001111001
+reset_n(x, pos, no)  =0011000000001001
+inverse_n(x, pos, no)=0011000001001001
+
+
+練習問題7-5
+請設計一個程式，以驗證不帶符號整數的算數運算不會產生溢值(overflow)。
+
+程式碼
+/*
+  驗證不帶符號整數的算數運算不會產生溢值(overflow)
+*/
+
+#include <stdio.h>
+#include <limits.h>
+
+int main(void)
+{
+    unsigned x = UINT_MAX - 1;
+
+    printf("unsigned型態的最大值：%u\n", UINT_MAX);
+    printf("x = %u\n", x);
+
+    printf("x + 3 = %u\n", x + 3);
+    printf("x + 2 = %u\n", x * 2);
+
+    return (0);
+}
+
+
+執行結果範例
+unsigned型態的最大值：65535
+x = 65534
+x + 3 = 1
+x * 2 = 65532

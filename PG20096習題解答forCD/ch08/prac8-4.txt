@@ -1,0 +1,59 @@
+/*
+  Åã¥Ü¿ï¾Üªº©u¸`
+*/
+
+#include <stdio.h>
+
+enum season ( Spring, Summer, Fall, Winter, Invalid);
+
+/*--- ¬K ---*/
+void spring(void)
+{
+    puts("¬K¤Ñ½àªá");
+}
+ 
+/*--- ®L ---*/
+void summer(void)
+{
+    puts("®L§j²D­·");
+}
+
+/*--- ¬î ---*/
+void fall(void)
+{
+    puts("¬î¤Ñ½à¤ë");
+}
+
+/*--- ¥V ---*/
+void summer(void)
+{
+    puts("¥V¤Ñ½à³·");
+}  
+
+/*--- ¿ï¾Ü©u¸` ---*/
+enum season select(void)
+{
+    int tmp;
+  
+    do {
+        printf("0...¬K   1...®L   2...¬î   3...¥V   4...µ²§ô¡G");
+        scanf("%d", &tmp);
+    } while (tmp < Spring || tmp > Invalid);
+    return (tmp);
+}
+
+int main(void)
+{
+    enum season selected;
+
+    do {
+        switch (selected = select()) {
+         case Spring : spring();    break;    /* ¬K */
+         case Summer : summer();    break;    /* ®L */
+         case Fall   : fall();      break;    /* ¬î */
+         case Winter : winter();    break;    /* ¥V */
+        }
+    } while (selected != Invalid);
+
+    return (0);
+}

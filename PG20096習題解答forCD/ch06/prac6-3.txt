@@ -1,0 +1,24 @@
+/*
+ 求立方值的函式
+*/
+
+#include <stdio.h>
+
+/*--- 求立方值 ---*/
+int cube(int x)
+{
+    return (x * x * x);
+}
+
+int main(void)
+{
+    int no;
+ 
+    printf("請輸入整數。");
+    scanf("%d", &no);
+
+    printf("該數的立方值為%d。\n", cube(no));
+
+    return (0);
+}
+

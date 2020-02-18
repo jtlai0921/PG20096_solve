@@ -1,0 +1,28 @@
+/*
+  依指定次數連續顯示字串的函式
+*/
+
+#include <stdio.h>
+
+/*--- 連續no次顯示字串str ---*/
+void put_stringn(const char str[], int no)
+{
+    while (no-- > 0)
+        printf("%s", str);
+}
+
+int main(void)
+{
+    char str[100];
+    int no;
+
+    printf("請輸入字串：");        scanf("%s", str);
+    printf("請問要顯示幾次：");    scanf("%d", &no);
+
+    put_stringn(str, no);
+    putchar('\n');
+
+    return (0);
+}
+
+

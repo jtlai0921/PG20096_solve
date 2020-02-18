@@ -1,0 +1,18 @@
+/*
+    會顯示「哈囉！」的函式
+*/
+
+#include <stdio.h>
+
+/*--- 會顯示「哈囉！」並換行 ---*/
+void hello(void)
+{
+    puts("哈囉！");
+}
+
+int main(void)
+{
+    hello();
+ 
+    return (0);
+}

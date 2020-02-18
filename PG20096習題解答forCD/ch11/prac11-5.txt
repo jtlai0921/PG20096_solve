@@ -1,0 +1,34 @@
+/*
+  刪除字串中的數字字元
+*/
+
+#include <stdio.h>
+
+/*--- 刪除字串str中的數字字元 ---*/
+void del_digit(char *str)
+{
+    char *ptr = str;
+
+    while (*str) {
+        if (*str < '0' || *str > '9')
+            *ptr++ = *str;
+        str++;
+    }
+    *ptr = '\0';
+}
+
+int main(void)
+{
+    char str[100];
+
+    printf("請輸入字串：");
+    scanf("%s", str);
+
+    del_digit(str);              /* 刪除數字字元 */
+
+    puts("已刪除數字字元。");
+    printf("str = %s\n", str);
+
+    return (0);
+}
+

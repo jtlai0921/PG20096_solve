@@ -1,0 +1,17 @@
+/*
+ 　製作直角三角形（直角在左上方）
+*/										
+#include  <stdio.h>	
+int main(void)	
+{
+    int i, j, ln;
+    printf("直角三角形共幾列：");
+    scanf("%d", &1n);
+
+    for (i = ln; i >= 1; i--) {                     /* i行 （i= ln, ln-1, ..., 1)  */
+        for (j = 1; j <= i; j++)                    /* 顯示i 個'*' */
+            putchar('*');
+        putchar('\n');                                /* 換行 */
+    }
+    return (0);
+}

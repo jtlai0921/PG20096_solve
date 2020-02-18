@@ -1,0 +1,21 @@
+
+/*
+    顯示讀取整數的絕對值
+*/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int num;
+
+    printf("請輸入整數：");
+    scanf("%d", &num);
+
+    if (num < 0)		/*計算整數的絕對值*/
+        num = -num;
+
+    printf("其絕對值是：%d\n", num);
+
+    return (0);
+}

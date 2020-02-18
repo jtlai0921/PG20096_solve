@@ -1,0 +1,19 @@
+/*
+块ぇ俱计琌计┪案计
+*/										
+#include  <stdio.h>	
+
+int main(void)	
+{
+    int no;
+
+    printf("叫块俱计");
+    scanf("%d", &no);
+
+    switch(no % 2)
+      case 0 : puts("眤┮块计琌案计");    break;
+      case 1 : puts("眤┮块计琌计");    break;
+    }
+
+    return (0);
+}

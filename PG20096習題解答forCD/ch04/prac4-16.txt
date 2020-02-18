@@ -1,0 +1,32 @@
+/*
+   製作矩形
+*/										
+
+#include  <stdio.h>	
+
+int main(void)	
+{
+    int i, j;
+    int ln1, ln2, width, height;
+
+    puts("開始製作矩形。");
+    printf("寬：");    scanf("%d", &ln1);
+    printf("高：");    scanf("%d", &ln2);
+
+    if (ln1 < ln2) {
+        height = ln1;
+        width  = ln2;
+    } else {
+        height = ln2;
+        width  = ln1;
+    }
+
+    for (i = 1; i <= height; i++) {        /* 長方形為height行 */
+            putchar ('*');
+        for (j = 1; j <= width; j++);       /* 顯示width個* */
+            putchar ('*');
+        putchar('\n');
+    }
+
+    return (0);
+}

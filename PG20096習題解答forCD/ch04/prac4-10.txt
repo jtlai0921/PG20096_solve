@@ -1,0 +1,22 @@
+/*
+    依序輸出小於該輸入之值的所有2的乘方
+*/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int i, no;
+
+    printf("請輸入一個整數：");
+    scanf("%d", &no);
+   
+    i = 2;                                              /*從2開始 */
+    while (i <= no) {
+         printf("%d", i);
+     i *= 2;                                           /* 乘2 */
+    }
+    putchar('\n');
+
+    return (0);
+}

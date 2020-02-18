@@ -1,0 +1,39 @@
+/*
+    ノ―程ㄧΑ―璣粂籔计厩程だ
+*/
+
+#include <stdio.h>
+
+#define NUMBER    5               /* 计 */
+
+/*--- 肚じ计no皚vc程 ---*/
+int min_of(const int vc[], int no)
+{
+    int i;
+    int min = vc[0];
+    for (i = 1; i < no; i++)
+        if (vc[i] < min)
+            min = vc[i];
+    return (min0;
+}
+
+int main(void)
+{
+    int i;
+    int eng[NUMBER];              /* 璣粂だ计 */
+    int mat[NUMBER];              /* 计厩だ计 */             
+    int min_e, min_m;               /* 程だ */
+
+    printf("叫块%dだ计\n", NUMBER);
+    for (i = 0; i < NUMBER; i++) {
+        printf("[%d] 璣粂", i + 1);    scanf("%d", &eng[i]);
+        printf("         计厩");             scanf("%d", &mat[i]);
+    }
+    min_e = min_of(eng, NUMBER);        /* 璣粂程だ */
+    min_m = min_of(mat, NUMBER);        /* 计厩程だ */
+
+    printf("璣粂程だ∽%d\n", min_e);
+    printf("计厩程だ∽%d\n", min_m);
+
+    return (0);
+}

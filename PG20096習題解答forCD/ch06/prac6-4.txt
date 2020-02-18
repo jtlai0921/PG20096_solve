@@ -1,0 +1,29 @@
+/*
+    求出讀取的整數的4次方數值的函式
+*/
+
+#include  <stdio.h>
+
+/*---傳回平方值---*/
+int sqr(int x)
+{
+    return (x * x);
+}
+
+/*--- 傳回4次方的數值 ---*/
+int pow4(int x)
+{
+    return (sqr(sqr(x)));
+}
+
+int main(void)
+{
+    int no;
+  
+    printf("請輸入整數：");
+    scanf("%d", &no);
+
+    printf("該數的4次方為%d。\n", pow4(no));
+
+    return (0);
+}

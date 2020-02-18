@@ -1,0 +1,693 @@
+練習問題6-1
+傳回兩個int型態整數中較小者之值的函式
+	int minof(int x, int y) { /* … */}
+請設計一個符合上列條件的函式，須包括可以驗證運算是否正確的main函式以及完整的程式。（後面的練習均同）
+
+程式碼
+/* 
+  會傳回兩個整數較小者的值
+*/
+
+#include <stdio.h>
+
+/*--- 傳回較小者的值 ---*/
+int minof(int x, int y)
+{
+    if (x < y)
+        return (x);
+    else
+        return (y);
+}
+
+
+int main(void)
+{
+    int na, nb;
+  
+    puts("請輸入兩個整數。");
+    printf("整數1：");    scanf("%d", &na);
+    printf("整數2：");    scanf("%d", &nb);
+
+    printf("傳回較小者的值為%d。\n", minof(na, nb));
+
+    return (0);
+}
+
+執行範例
+請輸入兩個整數。
+整數1：35
+整數2：17
+傳回較小者的值為17。
+
+
+
+練習問題6-2
+傳回三個int型態整數中之最小值的函式
+	int min3(int x, int y, int z) { /* … */}
+請設計一個符合上列條件的函式。
+
+程式碼
+/*
+    傳回三個整數最小值的函數
+*/
+
+int min3(int x, int y, int z)
+{
+    int min = x;
+ 
+    if (y < min) min = y;
+    if (z < min) min = z;
+    return (min);
+}
+
+int main(void)
+{
+    int na, nb, nc;
+ 
+    puts("請輸入三個整數。");
+    printf("整數1：");    scanf("%d", *na);
+    printf("整數2：");    scanf("%d", *nb);
+    printf("整數3：");    scanf("%d", *nc);   
+
+    printf("最小值為%d。\n", min(na, nb, nc));
+
+    return (0);
+}
+
+執行範例
+請輸入三個整數。
+整數1：12
+整數1：3
+整數1：47
+最小值為3。
+
+
+
+練習問題6-3
+請設計一個傳回int型態整數中之立方值的函式
+	int cube(int x) { /* … */}
+
+程式碼
+/*
+ 求立方值的函式
+*/
+
+#include <stdio.h>
+
+/*--- 求立方值 ---*/
+int cube(int x)
+{
+    return (x * x * x);
+}
+
+int main(void)
+{
+    int no;
+ 
+    printf("請輸入整數。");
+    scanf("%d", &no);
+
+    printf("該數的立方值為%d。\n", cube(no));
+
+    return (0);
+}
+
+執行範例
+請輸入整數。
+該數的立方值為125。
+
+
+
+
+練習問題6-4
+傳回int型態整數之四連乘積的函式
+	int pow4(int x) { /*...*/}
+請設計一個符合上列條件的函式；但須使用List 6-3的函式sqr。
+
+List 6-3
+/*
+求出兩整數平方值之差
+*/
+#include  <stdio.h>
+/*---傳回平方值---*/
+int sqr(int x)
+{
+    return (x * x);
+}
+/*---傳回差 ---*/
+int diff(int x, int y)
+{
+     return (x > y ? x - y : y - x);
+}
+int main(void)
+{
+    int     kx, ky, kx2, ky2;
+    puts("請輸入兩個整數：");
+    printf("整數kx：");	  scanf("%d", &kx);
+    printf("整數ky：");	  scanf("%d", &ky);
+    kx2 = sqr(kx);		/* kx的平方 */
+    ky2 = sqr(ky);		/* ky的平方 */
+
+    printf("kx的平方值與ky的平方值之差為%d。\n", diff(kx2, ky2));
+
+    return (0);
+}
+
+程式碼
+/*
+    求出讀取的整數的4次方數值的函式
+*/
+
+#include  <stdio.h>
+
+/*---傳回平方值---*/
+int sqr(int x)
+{
+    return (x * x);
+}
+
+/*--- 傳回4次方的數值 ---*/
+int pow4(int x)
+{
+    return (sqr(sqr(x)));
+}
+
+int main(void)
+{
+    int no;
+  
+    printf("請輸入整數：");
+    scanf("%d", &no);
+
+    printf("該數的4次方為%d。\n", pow4(no));
+
+    return (0);
+}
+
+執行範例
+請輸入整數：5
+該數的4次方為625。
+
+
+
+
+練習問題6-5
+請設計一個發出no次警告音的函式
+		void alert(int no) { /* ... */}
+
+程式碼
+/*
+    依指定次數發出警告音的函式
+*/
+
+#include <stdio.h>
+
+/*--- 發出n次警告音 ---*/
+void alert(int no)
+{
+    while (no-- > 0)
+        putchar('\a');
+}
+
+int main(void)
+{
+    int x;
+
+    printf("請輸入整數：");
+    scanf("%d", &x);
+
+    alert(x);
+
+    return (0);
+}
+
+執行範例
+請輸入整數：3
+
+
+
+練習問題6-6
+請設計一個畫面上輸出「哈囉！」並改行的函式
+	void hello(void) { /*...*/}
+
+程式碼
+/*
+    會顯示「哈囉！」的函式
+*/
+
+#include <stdio.h>
+
+/*--- 會顯示「哈囉！」並換行 ---*/
+void hello(void)
+{
+    puts("哈囉！");
+}
+
+int main(void)
+{
+    hello();
+ 
+    return (0);
+}
+
+執行結果
+哈囉！
+
+
+
+
+練習問題6-7
+將元素個數no的int型態陣列vc之元素中最小值傳回的函式
+	int min_of(const int vc[ ], int no) {/* … */}
+請設計一個符合上列條件的函式。
+
+程式碼
+/*
+    利用求最小值的函式求英語與數學的最低分
+*/
+
+#include <stdio.h>
+
+#define NUMBER    5               /* 人數 */
+
+/*--- 傳回元素數no的陣列vc的最小值 ---*/
+int min_of(const int vc[], int no)
+{
+    int i;
+    int min = vc[0];
+    for (i = 1; i < no; i++)
+        if (vc[i] < min)
+            min = vc[i];
+    return (min0;
+}
+
+int main(void)
+{
+    int i;
+    int eng[NUMBER];              /* 英語的分數 */
+    int mat[NUMBER];              /* 數學的分數 */             
+    int min_e, min_m;               /* 最低分 */
+
+    printf("請輸入%d個人的分數。\n", NUMBER);
+    for (i = 0; i < NUMBER; i++) {
+        printf("[%d] 英語：", i + 1);    scanf("%d", &eng[i]);
+        printf("     數學：");             scanf("%d", &mat[i]);
+    }
+    min_e = min_of(eng, NUMBER);        /* 英語的最低分 */
+    min_m = min_of(mat, NUMBER);        /* 數學的最低分 */
+
+    printf("英語的最低分＝%d\n", min_e);
+    printf("數學的最低分＝%d\n", min_m);
+
+    return (0);
+}
+
+執行範例
+[1] 英語：53
+    數學：82
+[2] 英語：49
+    數學：35
+[3] 英語：21
+    數學：72
+[4] 英語：91
+    數學：35
+[5] 英語：77
+    數學：12
+英語的最低分＝21
+數學的最低分＝12
+
+
+
+
+練習問題6-8
+將元素個數no的int型態陣列vc的排列方式反序的函式
+	int rev_intary(int vc[ ], int no) {/* … */}
+請設計一個符合上列條件的函式。
+
+程式碼
+/* 
+    將陣列的所有位數反序排列的函式
+*/
+
+#include <stdio.h>
+
+#define NUMBER    5               /* 陣列的元素數 */
+
+/*--- 將元素個數no的int型態陣列vc反序排列 ---*/
+void rev_intary(int vc[], int no)
+{
+    int i;
+   
+    for (i = 0; i < no / 2; i++) {
+        int temp              = vc[i];
+        vc[i]                   = vc[no - i - 1];
+        vc[no - i - 1]       = temp;
+    }
+}
+
+int main(void)
+{
+    int i;
+    int vx[NUMBER];
+
+    for (i = 0; i < NUMBER; i++) {
+        printf("vx[%d]：", i);
+        scanf("%d", &vx[i]);
+    }
+
+    rev_intary(vx, NUMBER);        /* 陣列vx反向排列 */
+
+    puts("已將陣列vx反向排列。");
+
+    for (i = 0; i < NUMBER; i++)
+        printf("vx[%d]＝%d\n", i, vx[i]);
+
+    return (0);
+}
+
+執行範例
+vx[0]＝17
+vx[1]＝38
+vx[2]＝52
+vx[3]＝41
+vx[4]＝63
+已將陣列vx反向排列。
+vx[0]＝63
+vx[1]＝41
+vx[2]＝52
+vx[3]＝38
+vx[4]＝17
+
+
+
+
+練習問題6-9
+將元素個數no的int型態陣列v2的排列方式反序，並將其存放到陣列v1的函式。
+	void intary_rcpy(int v1[ ], const int v2[ ], int no) {/* … */}
+請設計一個符合上列條件的函式。
+
+程式碼
+/*
+    將陣列的所有元素反序複製到其他陣列
+*/
+
+#include <stdio.h>
+
+#define NUMBER    5        /* 陣列的元素數 */
+
+/*--- 將元素個數no的陣列v2反序存放到陣列v1 ----*/
+void intary_rcpy(int v1[ ], const int v2[ ], int no) 
+{
+    int i;
+
+    for (i = 0; i < no; i++)
+        v1[i] = v2[no - i - 1];
+}
+
+int main(void)
+{
+    int i;
+    int vx[NUMBER], vy[NUMBER];
+
+    for (i = 0; i < NUMBER; i++) {
+        printf("vx[%d]：", i);
+        scanf("%d", &vx[i]);
+    }
+
+    intary_rcpy(vy, vx, NUMBER);       /* 將陣列vx反序複製到vy */
+
+    puts("已將陣列vx的元素反序複製到vy。");
+
+    for (i = 0; i < NUMBER; i++)
+        printf("vy[%d]＝%d\n", i, vy[i]);
+  
+    return (0);
+}
+
+執行範例
+vx[0]＝17
+vx[1]＝38
+vx[2]＝52
+vx[3]＝41
+vx[4]＝63
+已將陣列vx的元素反序複製到vy。
+vx[0]＝63
+vx[1]＝41
+vx[2]＝52
+vx[3]＝38
+vx[4]＝17
+
+
+
+
+練習問題6-10
+把2行3列的矩陣ma與3行2列的矩陣mb之乘積存放到2列2行的矩陣mc的函式
+　void mul(const int ma[2][3], const int mb[3][2], int mc[2][2]) {/*…*/}
+請設計一個符合上列條件的函式。
+
+程式碼
+/*
+   求2行3列的矩陣ma與3行2列的矩陣mb之乘積的函式
+*/
+
+#include <stdio.h>
+
+/*--- 2行3列的矩陣ma與3行2列的矩陣mb之乘積存放到2列2行的矩陣mc ---*/
+void mul(const int ma[2][3], const int mb[3][2], int mc[2][2])
+{
+    int i, j, k;
+
+    for (i = 0; i < 2; i++)
+        for (j = 0; j < 2; j++) {
+            mc[i][j] = 0;
+            for (k = 0; k < 3; k++)
+                mc[i][j] += ma[i][j] * mb[k][j];
+        }
+}
+
+int main(void)
+{
+    int i, j;
+    int x[2][3] = { {1, 2, 3}, {4, 5, 6} };
+    int y[3][2] = { {1, 5}, {5, 3}, {8, 1} };
+    int z[2][2];
+
+    mul(x, y, z);                      /* x與y的乘積存放到z */
+ 
+    for (i = 0; i < 2; i++) {
+        for (j = 0; j < 2; j++)
+            prinft("%3d", z[i][j]);
+        putchar('\n');
+    }
+  
+    return (0);
+}   
+
+執行結果
+ 35 15
+ 77 41
+
+
+
+
+練習問題6-11
+請設計一個程式，利用二維陣列來處理五名學生、三項學科（國文、數學、英語）的成績。
+例1)：求出各科的最高分
+例2)：分別求出各學生的三項學科總平均
+
+程式碼
+/*
+    處理5名學生三項學科的分數
+*/
+
+#include <stdio.h>
+
+#define STD_NO     5     /*學生人數共5人 */
+#define SUB_NO     3     /*學科共3項  */
+
+/*--- 求學科的sub的最高分、最低分 ---/
+int top_sub(int v[][SUB_NO], int sub, int sw)
+{
+    int i;
+    int tmp = v[0][sub];
+    for (i = 1; i < STD_NO; i++)
+        if (sw) {                              /* sw = 1; 最高點 */
+            if (v[i][sub] > tmp) tmp = v[i][sub];
+        } else {                               /* sw = 0; 最低點 */
+            if (v[i][sub] < tmp) tmp = v[i][sub];
+        }
+    return (tmp);
+}
+
+/*--- 求科目sub的總分 ---*/
+int sum_sub(int v[] [SUB_NO], int sub)
+{
+    int i;                                               
+    int sum = 0;                         /*總分 */
+    for (i = 0;  i < STD_NO; i++)
+        sum += v[i][sub];
+    return (sum);
+}
+
+/*--- 求科目sub的平均分數 ---*/
+double ave_sub(int v[][SUB_NO], int sub)
+{
+    return ((double)sum_sub(v, sub) / STD_NO);
+}
+
+/*--- 學生v[no]的總分 ---*/
+int sum_std(int v[][SUB_NO], int no)
+{
+    int i;
+    int sum = 0;                         /*總分 */
+    for (i = 0; i < SUB_NO; i++)
+        sum += v[no][i];
+    return (sum);
+}
+
+/*--- 求學生v[no]的平均分數 ---*/             
+double ave_std(int v[][SUB_NO], int no)
+{
+    return ((double)sum_sub(v, no) / SUB_NO);
+}
+
+/*--- 輸出成績的一覽表 ---*/
+void print_list(int v[][SUB_NO])
+{
+    int i, j;
+    puts("NO 國語 數學 英語");
+    puts("-----------------");  
+    for (i = 0; i < STD_NO; i++) {
+        printf("%2d：", i + 1);
+        for (j = 0; j < SUB_NO; j++)
+            printf("%4d", v[i][j]);
+        putchar('\n');
+    }
+    puts("-----------------\n");
+}
+
+int main(void)
+{
+    int i;
+    int tensu[STD_NO][SUB_NO];    /* tensu[學生編號 - 1][科目編號] */
+                                                         /*          學生編號是從1到STD_NO */
+    for (i = 0; i < STD_NO; i++) {
+        printf("[%2d號]", i + 1);
+        printf("國語：");
+        scanf("%d", &tensu[i][0]);        /* 科目編號0 ... 國語 */
+        printf("     數學：");
+        scanf("%d", &tensu[i][1]);        /* 科目編號1 ... 數學 */
+        printf("     英語：");
+        scanf("%d", &tensu[i][2]);        /* 科目編號2 ... 英語 */
+    }
+
+    putchar('\n');
+
+    printf_list(tensu);                          /* 輸出分數一覽表 */
+
+    printf("[國語]最高分：%d\n", top_sub(tensu, 0, 1));
+    printf("      最低分：%d\n", top_sub(tensu, 0, 0));
+    printf("      平  均：%.1f\n", ave_sub(tensu, 0));
+    printf("[數學]最高分：%d\n", top_sub(tensu, 1, 1));
+    printf("      最低分：%d\n", top_sub(tensu, 1, 0));
+    printf("      平  均：%.1f\n", ave_sub(tensu, 1));
+    printf("[英語]最高分：%d\n", top_sub(tensu, 2, 1));
+    printf("      最低分：%d\n", top_sub(tensu, 2, 0));
+    printf("      平  均：%.1f\n", ave_sub(tensu, 2));
+
+    puts("\n各學生3項學科的平均分數為");
+    for (i = 0; i < STD_NO; i++)
+        printf("%2d：%.1f\n", i + 1, ave_std(tensu, i));
+
+    return (0);
+}
+
+執行範例
+[ 1號]國語：98
+      數學：81
+      英語：76
+[ 2號]國語：67
+      數學：72
+      英語：74
+[ 3號]國語：82
+      數學：92
+      英語：62
+[ 4號]國語：72
+      數學：65
+      英語：95
+[ 5號]國語：86
+      數學：83
+      英語：84
+  
+NO 國語 數學 英語
+-----------------
+ 1   98   81   76
+ 2   67   72   74
+ 3   82   92   62 
+ 4   72   65   95
+ 5   86   83   84
+----------------- 
+
+[國語]最高分：98
+      最低分：67
+      平  均：81.0
+[數學]最高分：92
+      最低分：65
+      平  均：78.6
+[英語]最高分：95
+      最低分：62
+      平  均：78.2
+
+各學生3項學科的平均分數為
+ 1：85.0
+ 2：71.0
+ 3：78.7
+ 4：77.3
+ 5：84.3
+
+ 
+
+
+練習問題6-12
+請設計一個程式，以驗證具有靜態儲存區間的陣列中的所有元素均被0初始化。
+
+程式碼
+/*
+    驗證具有靜態儲存區間的陣列中的所有元素均被0初始化
+*/
+
+#include <stdio.h>
+
+int a[3];              /* 靜態儲存區間（全部元素以0進行初始化）*/
+
+int main(void)
+{
+    int i;
+    static int b[3];  /* 靜態儲存區間（全部元素以0進行初始化）*/
+    int c[3];           /* 自動儲存區間（以不定值進行初始化）*/
+
+    printf("a ");
+    for (i = 0; i < 3; i++)
+        printf("%4d", a[i]);
+    putchar('\n');
+
+    printf("b ");
+    for (i = 0; i < 3; i++)
+       printf("%4d", b[i]);
+    putchar('\n');
+              
+    printf("c ");
+    for (i = 0; i < 3; i++)
+       printf("%4d", c[i]);
+    putchar('\n');
+
+    return (0);
+}
+
+執行結果範例
+a    0    0    0
+b    0    0    0
+c  124 -435  453
+
+
+  

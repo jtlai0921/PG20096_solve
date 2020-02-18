@@ -1,0 +1,24 @@
+/*
+    依照輸入列數來輸出一個金字塔形
+*/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int i, j, height;
+
+    puts("製作金字塔形。");
+    printf("金字塔形共幾列？");
+    scanf("%d", &height);
+
+    for (i = 1; i <= height; i++) {                    /* i行 （i= 1, 2, ..., height)  */
+        for (j = 1; j <= height - i; j++)              /* 顯示height - i個' ' */
+            putchar(' ');
+        for (j = 1; j <= i * 2 - 1; j++)                /* 顯示i * 2 - 1個'*' */
+            putchar('*');
+    putchar('\n');                                            /* 換行 */  
+    }
+    return (0);
+}
+

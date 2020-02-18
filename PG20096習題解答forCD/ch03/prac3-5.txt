@@ -1,0 +1,20 @@
+/*
+   ―俱计程块
+*/										
+#include  <stdio.h>	
+int main(void)	
+{
+    int n1, n2, n3, min;
+    puts("叫块俱计");
+    printf("俱计1");	scanf("%d", &n1);
+    printf("俱计2");	scanf("%d", &n2);
+    printf("俱计3");	scanf("%d", &n3);
+
+    min = n1;		/* ―俱计程 */
+    if (n2 > min) min = n2;
+    if (n3 > min) min = n3;
+
+    printf("程%d\n", min);
+
+    return (0);
+}

@@ -1,0 +1,29 @@
+/*
+  ㄢユ传ㄧΑエ栋
+*/
+
+#include <stdio.h>
+
+#define swap(type, x, y) do ( type temp = x; x = y; y = temp; } while (0)
+
+int main(void)
+{
+    int na, nb;
+
+    puts("叫块ㄢ俱计");
+    printf("俱计A");    scanf("%d", &na);
+    printf("俱计B");    scanf("%d", &nb);
+
+    swap(int, na, nb);      /* ユ传俱计 */ 
+    puts("\nユ传A籔B");
+    printf("俱计A∽%d\n", na);
+    printf("俱计B∽%d\n", na);  
+
+    return (0);
+}
+   
+
+
+
+
+

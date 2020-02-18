@@ -1,0 +1,105 @@
+/*
+    處理5名學生三項學科的分數
+*/
+
+#include <stdio.h>
+
+#define STD_NO     5     /*學生人數共5人 */
+#define SUB_NO     3     /*學科共3項  */
+
+/*--- 求學科的sub的最高分、最低分 ---/
+int top_sub(int v[][SUB_NO], int sub, int sw)
+{
+    int i;
+    int tmp = v[0][sub];
+    for (i = 1; i < STD_NO; i++)
+        if (sw) {                              /* sw = 1; 最高點 */
+            if (v[i][sub] > tmp) tmp = v[i][sub];
+        } else {                               /* sw = 0; 最低點 */
+            if (v[i][sub] < tmp) tmp = v[i][sub];
+        }
+    return (tmp);
+}
+
+/*--- 求科目sub的總分 ---*/
+int sum_sub(int v[] [SUB_NO], int sub)
+{
+    int i;                                               
+    int sum = 0;                         /*總分 */
+    for (i = 0;  i < STD_NO; i++)
+        sum += v[i][sub];
+    return (sum);
+}
+
+/*--- 求科目sub的平均分數 ---*/
+double ave_sub(int v[][SUB_NO], int sub)
+{
+    return ((double)sum_sub(v, sub) / STD_NO);
+}
+
+/*--- 學生v[no]的總分 ---*/
+int sum_std(int v[][SUB_NO], int no)
+{
+    int i;
+    int sum = 0;                         /*總分 */
+    for (i = 0; i < SUB_NO; i++)
+        sum += v[no][i];
+    return (sum);
+}
+
+/*--- 求學生v[no]的平均分數 ---*/             
+double ave_std(int v[][SUB_NO], int no)
+{
+    return ((double)sum_sub(v, no) / SUB_NO);
+}
+
+/*--- 輸出成績的一覽表 ---*/
+void print_list(int v[][SUB_NO])
+{
+    int i, j;
+    puts("NO 國語 數學 英語");
+    puts("-----------------");  
+    for (i = 0; i < STD_NO; i++) {
+        printf("%2d ", i + 1);
+        for (j = 0; j < SUB_NO; j++)
+            printf("%4d", v[i][j]);
+        putchar('\n');
+    }
+    puts("-----------------\n");
+}
+
+int main(void)
+{
+    int i;
+    int tensu[STD_NO][SUB_NO];    /* tensu[學生編號 - 1][科目編號] */
+                                                         /*          學生編號是從1到STD_NO */
+    for (i = 0; i < STD_NO; i++) {
+        printf("[%2d號]", i + 1);
+        printf("國語：");
+        scanf("%d", &tensu[i][0]);        /* 科目編號0 ... 國語 */
+        printf("     數學：");
+        scanf("%d", &tensu[i][1]);        /* 科目編號1 ... 數學 */
+        printf("     英語：");
+        scanf("%d", &tensu[i][2]);        /* 科目編號2 ... 英語 */
+    }
+
+    putchar('\n');
+
+    printf_list(tensu);                          /* 輸出分數一覽表 */
+
+    printf("[國語]最高分：%d\n", top_sub(tensu, 0, 1));
+    printf("      最低分：%d\n", top_sub(tensu, 0, 0));
+    printf("      平  均：%.1f\n", ave_sub(tensu, 0));
+    printf("[數學]最高分：%d\n", top_sub(tensu, 1, 1));
+    printf("      最低分：%d\n", top_sub(tensu, 1, 0));
+    printf("      平  均：%.1f\n", ave_sub(tensu, 1));
+    printf("[英語]最高分：%d\n", top_sub(tensu, 2, 1));
+    printf("      最低分：%d\n", top_sub(tensu, 2, 0));
+    printf("      平  均：%.1f\n", ave_sub(tensu, 2));
+
+    puts("\n各學生3項學科的平均分數為");
+    for (i = 0; i < STD_NO; i++)
+        printf("%2d：%.1f\n", i + 1, ave_std(tensu, i));
+
+    return (0);
+}

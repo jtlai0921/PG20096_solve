@@ -1,0 +1,30 @@
+/*
+  顯示讀取的英文字元以後的所有英文字元
+*/
+
+#include <stdio.h>
+
+/*--- 搜尋字串str中的字元c，並傳回指向第一次出現的該字元的指標 ---*/
+char *str_chr(const char *str, int c)
+{
+    for ( ; *str; str++) {
+        if (*str == c)
+            return ((char *)str);
+    }
+ 
+    return (NULL);
+}
+
+int main(void)
+{
+    char str[10], *p;
+    char uletter[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+    printf("請輸入英文大寫字母：");
+    scanf("%s", str);
+
+    p = str_chr(uletter, str[0]);
+    if (p != NULL) puts(p);
+
+    return (0);
+}

@@ -1,0 +1,25 @@
+/*
+  將字串改成空字串的函式
+*/
+
+#include <stdio.h>
+
+/*--- 將字串str改成空字串 ---*/
+void null_string(char str[])
+{
+    str[0] = '\0';
+}
+
+int main(void)
+{
+    char str[] = "ABC";
+
+    printf("str＝%s\n", str);
+
+    null_string(str);           /* 將字串改成空字串 */
+
+    puts("已將字串str改成空字串。");
+    printf("str＝%s\n", str);
+
+    return (0);
+}

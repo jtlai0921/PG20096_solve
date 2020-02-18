@@ -1,0 +1,102 @@
+練習問題12-1
+請設計一個輸出目前時間的函式。
+	void put_time(void) { /* … */ }
+
+程式碼
+/*
+  顯示現在時刻
+*/
+
+#include <time.h>
+#include <stdio.h>
+
+/*--- 顯示現在的時間 ---*/
+void put_time(void)
+{
+    time_t    current;
+    struct tm *local;
+
+    time(&current);               /* 取得現在的時間 */
+    local = localtime(&current);  /* 轉換成地方時間的結構體 */
+    printf("%02d時%02分%02d秒", local->tm_hour, local->tm_min, local->tm_sec);
+}
+
+int main(void)
+{
+    printf("現在的時間是：");
+    put_time();
+    printf("。\n");
+
+    return (0);
+} 
+
+執行範例
+現在的時間是：03時05分25秒。
+
+
+
+
+練習問題12-2
+請從身邊找出可以用結構體來表現的事物，幫它設計一個程式來執行。  
+
+程式碼
+/* 
+  顯示日期的結構體
+*/
+
+#include <stdio.h>
+
+typedef struct(    /*===日期 ＝＝＝*/
+    int y;         /* 西曆年 */
+    int m;         /* 月 */
+    int d;         /* 日 */
+} Date;
+
+/*--- 顯示存放在d的日期 ---*/
+void printDate(Date d)
+{
+    printf("%4d年%2d月%2d日", d.y, d.m, d.d);
+}
+
+/*--- 將存放在d的日期以年號表示 ---*/
+void printfDateGen(Date d)
+{
+    unsigned long days = (d.y * 10000UL) + (d.m * 100) + d.d;
+
+    if (days < 18680908UL)
+        printf("%04年", d.y);
+    else if(days < 19120730UL)
+        printf("明治%02d年", d.y - 1867);
+    else if(days < 19261225UL)    
+        printf("大正%02d年", d.y - 1911);
+    else if(days < 19890108UL)    
+        printf("昭和%02d年", d.y - 1925);
+    else
+        printf("平成%02d年", d.y - 1988);
+    printf("%02d月%02d日", d.m, d.d);
+}
+
+int main(void)
+{
+    Date day;
+
+    puts("請輸入日期。");
+    printf("年：");    scanf("%d", &day.y);
+    printf("月：");    scanf("%d", &day.m);
+    printf("日：");    scanf("%d", &day.d);
+
+    printf("西元：");    printDate(day);       putchar('\n');
+    printf("年號：");    printDateGen(day);    putchar('\n'); 
+
+    return (0);
+}
+
+
+
+程式碼
+請輸入日期。
+年：1963
+月：11
+日：18
+西元：1963年11月18日
+年號：昭和38年11月18日

@@ -1,0 +1,27 @@
+/* 
+  會傳回兩個整數較小者的值
+*/
+
+#include <stdio.h>
+
+/*--- 傳回較小者的值 ---*/
+int minof(int x, int y)
+{
+    if (x < y)
+        return (x);
+    else
+        return (y);
+}
+
+int main(void)
+{
+    int na, nb;
+  
+    puts("請輸入兩個整數。");
+    printf("整數1：");    scanf("%d", &na);
+    printf("整數2：");    scanf("%d", &nb);
+
+    printf("傳回較小者的值為%d。\n", minof(na, nb));
+
+    return (0);
+}

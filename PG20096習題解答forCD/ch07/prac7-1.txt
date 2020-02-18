@@ -1,0 +1,42 @@
+程式碼
+/*
+  驗證不帶符號整數左右位移即等於乘以或除以2的次方連乘積
+*/
+
+#include <stdio.h>
+
+/*--- 2的no次方連乘積 ---*/
+unsigned pow2(unsigned no)
+{
+    unsigned pw = 1;
+
+    while (no--)
+        pw *= 2;
+    return (pw);
+}
+
+into main(void)
+{
+    unsigned m_pow, d_pow, l_sht, r_sht;
+    unsigned a, n;
+
+    printf("請輸入整數A：");    scanf("%u", &a);
+    printf("請問位移幾位元：");  scanf("%u", &n);  
+
+    m_pow = a * pow2(n);        /* 乘以2的n次方連乘積之後的值 */
+    d_pow = a / pow2(n);        /* 除以2的n次方連乘積之後的值 */
+
+    l_sht = a << n;             /* 向左位移n位元後的值 */
+    r_sht = a >> n;             /* 向右位移n位元後的值 */        
+
+    printf("A ×（2的%u次方連乘積）= %u\n", n, m_pow);
+    printf("A ÷（2的%u次方連乘積） = %u\n", n, d_pow);
+    printf("A << %u = %u\n", n, l_sht);
+    printf("A >> %u = %u\n", n, r_sht);
+
+    if (r_sht == d_pow && l_sht == m_pow)
+        printf("不帶符號整數%u左右位移%u位元，\n"
+             "等於乘以或除以2的%u次方連乘積。\n", a, n, n);
+
+return (0);
+}

@@ -1,0 +1,12 @@
+
+/* 將"風林火山"分行顯示
+
+#include  <stdio.h>	
+
+int main(void)	
+{
+    puts("風\n林\n火\n山"); 	 
+
+    return (0);
+}
+

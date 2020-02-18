@@ -1,0 +1,14 @@
+/*
+  顯示以"ABC\0DEF"進行初始化的字串
+*/
+
+#include <stdio.h>
+
+int main(void)
+{
+    char str[] = "ABC\0DEF";        /* 字串中出現空字元 */
+
+    printf("字串str是%s。\n", str); /* 顯示 */
+
+    return (0);
+}

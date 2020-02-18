@@ -1,0 +1,26 @@
+/*
+  顯示現在時刻
+*/
+
+#include <time.h>
+#include <stdio.h>
+
+/*--- 顯示現在的時間 ---*/
+void put_time(void)
+{
+    time_t    current;
+    struct tm *local;
+
+    time(&current);               /* 取得現在的時間 */
+    local = localtime(&current);  /* 轉換成地方時間的結構體 */
+    printf("%02d時%02分%02d秒", local->tm_hour, local->tm_min, local->tm_set);
+}
+
+int main(void)
+{
+    printf("現在的時間是：");
+    put_time();
+    printf("。\n");
+
+    return (0);
+} 

@@ -1,0 +1,50 @@
+/* 
+  顯示日期的結構體
+*/
+
+#include <stdio.h>
+
+typedef struct(    /*===日期 ＝＝＝*/
+    int y;         /* 西曆年 */
+    int m;         /* 月 */
+    int d;         /* 日 */
+} Date;
+
+/*--- 顯示存放在d的日期 ---*/
+void printDate(Date d)
+{
+    printf("%4d年%2d月%2d日", d.y, d.m, d.d);
+}
+
+/*--- 將存放在d的日期以年號表示 ---*/
+void printfDateGen(Date d)
+{
+    unsigned long days = (d.y * 10000UL) + (d.m * 100) + d.d;
+
+    if (days < 18680908UL)
+        printf("%04年", d.y);
+    else if(days < 19120730UL)
+        printf("明治%02d年", d.y - 1867);
+    else if(days < 19261225UL)    
+        printf("大正%02d年", d.y - 1911);
+    else if(days < 19890108UL)    
+        printf("昭和%02d年", d.y - 1925);
+    else
+        printf("平成%02d年", d.y - 1988);
+    printf("%02d月%02d日", d.m, d.d);
+}
+
+int main(void)
+{
+    Date day;
+
+    puts("請輸入日期。");
+    printf("年：");    scanf("%d", &day.y);
+    printf("月：");    scanf("%d", &day.m);
+    printf("日：");    scanf("%d", &day.d);
+
+    printf("西元：");    printDate(day);       putchar('\n');
+    printf("年號：");    printDateGen(day);    putchar('\n'); 
+
+    return (0);
+}

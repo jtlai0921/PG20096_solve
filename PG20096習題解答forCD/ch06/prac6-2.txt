@@ -1,0 +1,30 @@
+/*
+    肚俱计程ㄧ计
+*/
+
+int min3(int x, int y, int z)
+{
+    int min = x;
+ 
+    if (y < min) min = y;
+    if (z < min) min = z;
+    return (min);
+}
+
+int main(void)
+{
+    int na, nb, nc;
+ 
+    puts("叫块俱计");
+    printf("俱计1");    scanf("%d", *na);
+    printf("俱计2");    scanf("%d", *nb);
+    printf("俱计3");    scanf("%d", *nc);   
+
+    printf("程%d\n", min(na, nb, nc));
+
+    return (0);
+}
+
+
+
+

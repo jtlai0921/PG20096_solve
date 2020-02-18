@@ -1,0 +1,19 @@
+
+/*
+　輸入整數A與B，並調查B是否為A的約數？
+*/										
+#include  <stdio.h>	
+int main(void)	
+{
+    int na, nb;
+    puts("請輸入兩個整數值。");
+    printf("整數值A：");     scanf("%d", &na);
+    printf("整數值B：");     scanf("%d", &nb);
+
+    if (na % nb)
+         puts("B不是A的約數。");
+    else
+         puts("B是A的約數。");
+
+    return (0);
+}

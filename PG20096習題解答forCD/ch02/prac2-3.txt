@@ -1,0 +1,18 @@
+
+/*
+使其輸出結果為原始輸入的實數 
+*/
+
+#include <stdio.h>
+
+int main(void)
+{
+    double  no;
+
+    printf("請輸入實數："）;
+    scanf("%lf", &no);
+
+    printf("您所輸入的實數是%d。\n", no);
+
+    return (0);
+}

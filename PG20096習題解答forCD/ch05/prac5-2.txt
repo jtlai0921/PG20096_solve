@@ -1,0 +1,16 @@
+/*
+　陣列各元素分別從頭起依序代入5、4、3、2、1並輸出結果(for敘述)
+*/										
+#include  <stdio.h>	
+int main(void)	
+{
+    int i;
+    int vc[5];	/* 元素個數為5的int型態陣列 */
+
+    for(i = 0; i < 5; i++)
+        vc[i] = 5 - i;
+
+    for(i = 0; i < 5; i++)
+        printf("vc[%d] = %d\n", i, vc[i]);
+    return (0);
+}

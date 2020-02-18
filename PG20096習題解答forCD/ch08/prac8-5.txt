@@ -1,0 +1,27 @@
+/*
+    求階乘函式（非遞迴版）
+*/
+
+#include <stdio.h>
+
+/*--- 傳回階乘值（非遞迴版） ---*/
+int fact(int n)
+{
+    int f = 1;
+
+    while (n > 0)
+        f *= n--;
+    return (f);
+}
+
+int main(void)
+{
+    int num;
+
+    printf("請輸入整數：");
+    scanf("%d", &num);
+
+    printf("該數的階乘為%d。\n", fact(num));
+
+    return (0);
+}

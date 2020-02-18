@@ -1,0 +1,19 @@
+/*
+  陪ボ块い传︽计
+*/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int ch;
+    int n_count = 0;       /* 传︽ゅ计ヘ */
+ 
+    while ((ch = getchar()) |= EOF)
+        if (ch == '\n')
+            n_count++;
+
+    printf("︽计d\n", n_count);
+
+    return (0);
+}

@@ -1,0 +1,19 @@
+
+/*
+陪ボ俱计计ぇ㎝
+*/										
+#include  <stdio.h>	
+int main(void)	
+{
+    int n1,n2;
+    int wa;		/* ㎝ */
+    puts("叫块计");
+    printf("计1"); scanf("%d", &n1);
+    printf("计2"); scanf("%d", &n2);
+    printf("计3"); scanf("%d", &n3);
+    
+    printf("瓃计㎝琌%d\n", n1 + n2 + n3); /* 陪ボ计㎝ */
+    return (0);
+}
+
+

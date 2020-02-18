@@ -1,0 +1,24 @@
+/*
+    秸琩弄ㄢ俱计畉琌禬筁11
+*/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int na, nb;
+  
+    puts("叫块ㄢ计");
+    printf("计A");    scanf("%d", &na);
+    printf("计B");    scanf("%d", &nb);
+    
+    diff = na - nb;
+
+    if (diff > 10 || diff < -10)
+        puts("ㄢ计ぇ畉11");
+   else 
+        puts("ㄢ计ぇ畉10");
+
+    return (0);
+}
+

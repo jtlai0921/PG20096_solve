@@ -1,0 +1,11 @@
+
+/*
+   顯示15減去37之值
+*/										
+#include  <stdio.h>	
+int main(void)	
+{
+    printf("15減掉37的結果是%d\n", 15 - 37); 	 
+
+    return (0);
+}

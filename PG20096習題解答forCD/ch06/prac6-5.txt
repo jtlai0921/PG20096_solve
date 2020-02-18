@@ -1,0 +1,25 @@
+/*
+    依指定次數發出警告音的函式
+*/
+
+#include <stdio.h>
+
+/*--- 發出n次警告音 ---*/
+void alert(int no)
+{
+    while (no-- > 0)
+        putchar('\a');
+}
+
+int main(void)
+{
+    int x;
+
+    printf("請輸入整數：");
+    scanf("%d", &x);
+
+    alert(x);
+
+    return (0);
+}
+

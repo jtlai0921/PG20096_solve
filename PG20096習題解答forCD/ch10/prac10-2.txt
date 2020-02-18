@@ -1,0 +1,40 @@
+/*
+  能由小到大依序重新排列三個int型態整數
+*/
+
+#include <stdio.h>
+
+/*--- 交換nx、ny所指的物件的值 ---*/
+void swap(int *nx, int *ny)
+{
+    int temp = *nx;
+    *nx = *ny;
+    *ny = temp;
+}
+
+/*--- 使排列順序如*n1≦*n2≦*n3 ---*/
+void sort3(int *n1, int *n2, int *n3)
+{
+    if (*n1 > *n2) swap(n1, n2);
+    if (*n2 > *n3) swap(n2, n3);
+    if (*n1 > *n2) swap(n1, n2);
+}
+
+int main(void)
+{
+    int na, nb, nc;
+
+    puts("請輸入三個整數。");
+    printf("整數A：");    scanf("%d", &na);
+    printf("整數B：");    scanf("%d", &nb);
+    printf("整數C：");    scanf("%d", &nc);
+
+    sort3(&na, &nb, &nc);
+
+    puts("由小到大依序重新排列三個整數。");
+    printf("整數A是%d。\n", na);
+    printf("整數b是%d。\n", nb);
+    printf("整數c是%d。\n", nc);
+
+    return (0);
+}

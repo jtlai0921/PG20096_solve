@@ -1,0 +1,1023 @@
+練習問題4-1
+請改寫List 4-2的程式（由後而前重新排列非負數的整數，且輸入負數時會要求重新輸入），使最後輸出結果時也包括鍵盤輸入之值。
+
+List4-2
+/*
+　 由後而前重新排列非負數的整數
+*/									
+#include  <stdio.h>	
+
+int main(void)	
+{
+    int num;
+    do {
+        printf("請輸入一個非負數的整數：");
+        scanf("%d", &num);
+        if(num < 0)
+            puts("\a請勿輸入負數!");
+    }while (num < 0);
+	  			       /* num大於0 */
+    printf("由後而前重新排列的新數是");
+    do {
+        printf("%d", num % 10);		       /* 輸出最末位之值 */
+        num = num / 10;			       /*小數點往左移一位 */
+    }while (num > 0);
+    puts("。");
+
+    return (0);
+}
+
+顯示結果(for 問題)
+請輸入一個非負數的整數：1963
+1963由後而前重新排列的新數是3691
+
+程式碼
+/*
+　由後而前重新排列非負數的整數
+*/									
+#include  <stdio.h>	
+
+int main(void)	
+{
+    int num;
+
+    do {
+        printf("請輸入一個非負數的整數：");
+        scanf("%d", &num);
+        if (num < 0)
+            puts("\a請勿輸入負數!");
+    }while (num < 0);
+	  			       /* num大於0 */
+    printf("由後而前重新排列的新數是", num);
+    do {
+        printf("%d", num % 10);		       /* 輸出最末位之值 */
+        num = num / 10;			       /*小數點往左移一位 */
+    } while (num > 0);
+    puts("。");
+
+    return (0);
+}
+
+執行範例
+請輸入一個非負數的整數：1963
+1963由後而前重新排列的新數是3691
+
+
+
+練習問題4-2
+請改寫List 4-3的程式(求某個非負數整數的位數），使最後輸出結果時也包括鍵盤輸入之值。
+
+List4-3
+/*
+　 求某個非負數整數的位數
+*/
+
+#include  <stdio.h>
+
+int main(void) 
+{
+    int  num, temp;
+    int  dig;			/* 位數 */
+
+    do {
+        printf("請輸入一個非負數的整數：");
+        scanf("%d", &num);
+        if (num < 0)
+            puts("\a請勿輸入負數！");
+    } while (num < 0);
+							    
+    temp = num;                              /* num大於0 */
+    dig = 0;
+
+    do {
+        temp = temp / 10; 	/* 小數點往左移一位 */
+        dig = dig + 1;
+    } while (temp > 0);
+    printf("%d是%d位數。\n", num, dig);
+
+    return (0);
+}
+
+
+顯示結果(for 問題)
+請輸入一個非負數的整數：1963
+1963為4位數。
+
+程式碼
+/*
+    求某個非負數整數的位數
+*/
+
+#include  <stdio.h>
+
+int main(void) 
+{
+    int  num, temp;
+    int  dig;			/* 位數 */
+
+    do {
+        printf("請輸入一個非負數的整數：");
+        scanf("%d", &num);
+        if (num < 0)
+            puts("\a請勿輸入負數！");
+    } while (num < 0);
+							    
+                                                                                          /* num大於0 */
+    temp = num;
+    dig = 0;
+
+    do {
+        temp = temp / 10;  			/* 小數點往左移一位 */
+        dig = dig + 1;
+    } while (temp > 0);
+    printf("%d為%d位數。\n", num, dig);
+
+    return (0);
+}
+
+執行範例
+請輸入一個非負數的整數：1963
+1963為4位數。
+
+
+
+
+練習問題4-3
+請寫一個程式使其輸出結果如右所示。即輸出所有大於較小整數、且小於較大整數的所有整數加總後之值。
+
+顯示結果(for 問題)
+請輸入兩個整數。
+整數1：37
+整數2：28
+所有大於28且小於37的整數之和為325
+
+程式碼
+/*
+    讀取兩個整數值後，輸出大於較小整數、且小於較大整數的所有整數之加總
+*/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int n1, n2, no;
+    int upper, lower;
+    int sum = 0;
+
+    puts("請輸入兩個整數。");
+    printf("整數1：");    scanf("%d", &n1);
+    printf("整數2：");    scanf("%d", &n2);
+
+    if (n1 > n2)
+       upper = n1;                              /* 準備求n1到n2的加總 */
+       lower = n2;
+    } else {
+       upper = n2;                              /* 準備求n2到n1的加總 */
+       lower = n1;      
+    }
+
+    no = lower;                                 /* 計算從較小數值 */
+    do {
+        sum = sum + no;
+        no = no + 1;
+    } while (no <= upper);                /* 到較大值間所有整數的加總 */
+
+    print("所有大於%d且小於%d的整數之和為%d", lower, upper, sum);
+  
+    return (0);
+}   
+  
+執行範例
+請輸入兩個整數。
+整數1：37
+整數2：28
+所有大於28且小於37的整數之和為325
+
+
+
+練習問題4-4
+請用/=複合指定運算子改寫List4-2的程式。
+
+List4-2
+/*
+　 由後而前重新排列非負數的整數
+*/									
+#include  <stdio.h>	
+
+int main(void)	
+{
+    int num;
+    do {
+        printf("請輸入一個非負數的整數：");
+        scanf("%d", &num);
+        if(num < 0)
+            puts("\a請勿輸入負數!");
+    }while (num < 0);
+	  			       /* num大於0 */
+    printf("由後而前重新排列的新數是");
+    do {
+        printf("%d", num % 10);		       /* 輸出最末位之值 */
+        num = num / 10;			       /*小數點往左移一位 */
+    }while (num > 0);
+    puts("。");
+
+    return (0);
+}
+
+
+程式碼
+/*
+　 由後而前重新排列非負數的整數
+*/									
+#include  <stdio.h>	
+
+int main(void)	
+{
+    int num;
+
+    do {
+        printf("請輸入一個非負數的整數：");
+        scanf("%d", &num);
+        if(num < 0)
+            puts("\a請勿輸入負數!");
+    }while (num < 0);
+	  			       /* num大於0 */
+    printf("%d由後而前重新排列的新數是", num);
+    do {
+        printf("%d", num % 10);		       /* 輸出最末位之值 */
+        num /= 10;			       /*小數點往左移一位 */
+    }while (num > 0);
+    puts("。");
+
+    return (0);
+}
+
+執行範例
+請輸入一個非負數的整數：-17
+請勿輸入負數!
+請輸入一個非負數的整數：1963
+1963由後而前重新排列的新數是3691
+
+
+
+
+練習問題4-5
+請用/=複合指定運算子跟++後置一元遞增運算子改寫List4-3的程式。
+
+List4-3
+/*
+　 求某個非負數整數的位數
+*/
+#include  <stdio.h>
+int main(void) 
+{
+    int  num;
+    int  dig;			/* 位數 */
+    do {
+        printf("請輸入一個非負數的整數：");
+        scanf("%d", &num);
+        if (num < 0)
+            puts("\a請勿輸入負數！");
+    } while (num < 0);
+							    
+                                                                                          /* num大於0 */
+    dig = 0;
+    do {
+        num = num / 10 	;			/* 小數點往左移一位 */
+        dig = dig + 1 ;
+    } while (num < 0);
+    printf("此數字是%d位數。\n", dig);
+    return (0);
+}
+
+程式碼
+/*
+　 求某個非負數整數的位數
+*/
+
+#include  <stdio.h>
+
+int main(void) 
+{
+    int  num, temp;
+    int  dig;			/* 位數 */
+
+    do {
+        printf("請輸入一個非負數的整數：");
+        scanf("%d", &num);
+        if (num < 0)
+            puts("\a請勿輸入負數！");
+    } while (num < 0);
+							    
+    temp = num;                              /* num大於0 */
+    dig = 0;
+
+    do {
+        temp /=  10; 		/* 小數點往左移一位 */
+        dig ++ ;
+    } while (temp > 0);
+    printf("%d是%d位數。\n", num, dig);
+
+    return (0);
+}
+
+執行範例
+請輸入一個非負數的整數：-17
+請勿輸入負數！
+請輸入一個非負數的整數：1963
+1963是4位數。
+
+
+
+練習問題4-6
+請改寫List 4-7的程式（讀取某整數並倒數計數到0），並使其在輸入之值為負數時不換行。
+
+List4-7程式碼
+/*
+　將某整數倒數計數到0
+*/										
+#include  <stdio.h>	
+int main(void)	
+{
+    int no;
+    printf("請輸入一個整數：");
+    scanf("%d", &no);
+
+    while(no >= 0) {
+        printf("%d ", no);		/* no之值遞減 */
+        no--;		
+        }
+
+    putchar('\n'); 		/* 換行 */
+    return (0);
+}
+
+程式碼
+/*
+　將某整數倒數計數到0
+*/										
+#include  <stdio.h>	
+
+int main(void)	
+{
+    int no;
+    printf("請輸入一個整數：");
+    scanf("%d", &no);
+
+    if (no >=0) {
+        while (no >= 0) {
+            printf("%d ", no);		/* no之值遞減 */
+            no--;		
+        }
+
+    return (0);
+}
+
+執行範例
+請輸入一個整數：11
+11 10 9 8 7 6 5 4 3 2 1
+
+執行範例
+請輸入一個整數：0
+0
+
+執行範例
+請輸入一個整數：-5
+
+
+
+練習4-7
+練習4-7以List4-8的程式為基礎，製作倒數計數到1的程式。
+
+List4-8
+/*
+　將某整數倒數計數到0（第二版）
+*/										
+#include  <stdio.h>	
+
+int main(void)	
+{
+    int no;
+    printf("請輸入一個正整數：");
+    scanf("%d", &no);
+
+    while (no >= 0)	
+        printf("%d ", no--);	/* 輸入no之值後再遞減 */
+    putchar('\n');		
+
+    return (0);
+}
+
+程式碼
+/*
+　將某整數倒數計數到0（第二版）
+*/										
+#include  <stdio.h>	
+
+int main(void)	
+{
+    int no;
+    printf("請輸入一個正整數：");
+    scanf("%d", &no);
+
+    if (no >= 1) {
+        while (no > 0)	
+            printf("%d ", no--);	/* 輸入no之值後再遞減 */
+        putchar('\n');		
+    }
+
+    return (0);
+}
+
+執行範例
+請輸入一個正整數：11
+11 10 9 8 7 6 5 4 3 2 1
+
+
+
+
+練習問題4-8
+請改寫List 4-9的程式（從0開始計數到某正整數之值），使其符合下列的條件。
+  ‧改成從1開始計數（原來是從0）；
+  ‧若輸入之值小於0，則不換行。
+
+顯示結果(for 問題）
+請輸入一個正整數：12
+1 2 3 4 5 6 7 8 9 10 11 12
+
+
+List4-9
+/*
+　從0開始計數到某正整數之值
+*/										
+#include  <stdio.h>	
+
+int main(void)	
+{
+    int i, no;
+    printf("請輸入一個正整數：");
+    scanf("%d", &no);
+
+    i = 0;
+    while (i <= no)	
+        printf("%d ", i++);		/* 輸出顯示i值後再遞增 */
+    putchar('\n');
+
+    return (0);
+}
+
+程式碼
+/*
+　從1開始計數到某正整數之值
+*/										
+#include  <stdio.h>	
+
+int main(void)	
+{
+    int no;
+    printf("請輸入一個正整數：");
+    scanf("%d", &no);
+
+    if (no > 1)
+        int i = 1;
+       while (i <= no)	
+            printf("%d ", i++);		/* 輸出顯示i值後再遞增 */
+    putchar('\n');
+    }
+
+    return (0);
+}
+
+執行範例
+請輸入一個正整數：12
+1 2 3 4 5 6 7 8 9 10 11 12
+
+執行範例
+請輸入一個正整數：-5
+
+
+
+
+練習問題4-9
+請撰寫一個程式，使其依序輸出小於該輸入之值的所有正偶數（如右圖）。
+
+顯示結果（for 問題）
+請輸入一個整數：19
+2 4 6 8 10 12 14 16 18
+
+程式碼
+/*
+    依序輸出小於該輸入之值的所有正偶數
+*/
+
+#include <stdio.h>
+
+int main<stdio.h>
+
+    int i, no;
+
+    printf(" 請輸入一個整數：)";
+    scanf("%d", &no);
+   
+    i = 2;                                              /*從2開始 */
+    while (i <= no) {
+         printf("%d", i);
+     i += 2;                                           /* 加2 */
+    }
+    putchar('\n');
+
+    return (0);
+}
+
+執行範例
+請輸入一個整數：19
+2 4 6 8 10 12 14 16 18
+
+
+
+
+練習問題1-10
+請撰寫一個程式，使其依序輸出小於該輸入之值的所有2的乘方正整數（如右圖）。
+
+顯示結果（for 問題）
+請輸入一個整數：19
+2 4 8 16
+
+程式碼
+/*
+    依序輸出小於該輸入之值的所有2的乘方
+*/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int i, no;
+
+    printf("請輸入一個整數：");
+    scanf("%d", &no);
+   
+    i = 2;                                              /*從2開始 */
+    while (i <= no) {
+         printf("%d", i);
+     i *= 2;                                           /* 乘2 */
+    }
+    putchar('\n');
+
+    return (0);
+}
+
+執行結果
+請輸入一個整數：19
+2 4 8 16
+
+
+練習4-11
+請撰寫一個程式，使其連續輸出相當於某整數之值個數的*記號，且排列方式為直排（如右圖）。但若該整數小於0，則不做任何輸出。
+
+顯示結果（for 問題）
+請輸入一個正整數：3
+*
+*
+*
+
+程式碼
+/* 
+    直排輸出讀取之整數個數的*記號
+*/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int no;
+   
+    printf("請輸入一個正整數：");
+    scanf("%d", &no);
+
+    while (no-- > 0)        /*反覆n次 */
+        puts("*");              /* 顯示*並換行 */
+     
+    return (0);
+}
+
+
+執行範例
+請輸入一個正整數：3
+*
+*
+*
+
+
+
+練習問題4-12
+請用for敘述來改寫List 4-6中求出1到5之和的程式。
+
+List4-6
+/*
+　求1至5之和後再輸出（複合指定運算子+後置一元遞增運算子）
+*/										
+#include  <stdio.h>	
+int main(void)	
+{
+    int no = 1;
+    int sum = 0;		
+    do{
+        sum += no;	/* no 加到 sum */
+        no++;		/* no 遞增 (加1) */
+    } while (no <= 5);
+    printf("從1加到5的總和之值為%d。\n", sum);
+    return (0);
+}
+ 
+程式碼
+/*
+　求1至5之和後再輸出
+*/										
+#include  <stdio.h>	
+
+int main(void)	
+{
+    int i;
+    int sum = 0;		 /* 總和 */
+
+    for (i = 1; i <= 5; i++)
+        sum += i;	/* 將i從1開始遞增 */
+       		/* sum加上i */
+
+    printf("從1加到5的總和之值為%d。\n", sum);
+
+    return (0);
+}
+
+執行結果
+從1加到5的總和之值為15。
+
+
+
+
+練習問題4-13
+請撰寫一個程式，使其重複輸出1234567890（如右圖），且輸出的數字個數等於該某整數之值。
+
+顯示結果（for問題）
+請輸入整數：25
+1234567890123456789012345
+
+程式碼
+/* 重複輸出1234567890，且輸出的數字個數等於該某整數之值
+*/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int no, i;
+
+    printf("請輸入整數：");
+    scanf("%d", &no);
+
+    for ( i = 1; i <= no; i++)
+        printf("%d", i % 10);
+    putchar('\n');
+
+    return (0);
+}
+
+執行範例
+請輸入整數：25
+1234567890123456789012345
+
+
+
+
+練習問題4-14
+請撰寫一個程式，輸出身高與標準體重的對照表（如右圖）。但輸出的身高範圍（初始值、結束值、增加幅度）應為整數，標準體重輸出到小數點以下第二位。
+
+顯示結果
+從多少㎝？：150
+到多少㎝？：190
+每隔多少㎝？：5
+150㎝         45.00㎏
+155㎝	      49.50㎏
+…（以下省略）…
+
+程式碼
+/*
+    身高與標準體重的對應表
+*/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int     height;        /*身高 */
+    int     lower;         /*身高的下限（初始值） */
+    int     upper;         /*身高的上限（結束值） */
+    int     step;            /*增加幅度 */
+    double weight;     /* 體重 */
+
+    printf(" 從多少㎝？：");       scanf("%d", &lower);
+    printf(" 到多少㎝？：");       scanf("%d", &uppper);
+    printf(" 每隔多少㎝？：");   scanf("%d", &step);
+  
+    for (height = lower; height <= upper; height += step) {
+        weight = (height - 100) * 0.9;                                      /*計算標準體重 */
+        printf("%dcm %.2fkg\n", height, weight);                   /*顯示標準體重 */
+    }
+
+    return (0);
+}
+  
+執行範例
+從多少㎝？：150
+到多少㎝？：190
+每隔多少㎝？：5
+150㎝         45.00㎏
+155㎝	      49.50㎏
+160㎝	      54.00㎏
+165㎝	      58.50㎏
+170㎝	      63.00㎏
+175㎝	      67.50㎏
+180㎝	      72.00㎏
+185㎝	      76.50㎏
+190㎝	      81.00㎏
+
+
+
+練習問題4-15
+請撰寫一個程式，幫九九乘法表加上分隔線如右圖。
+
+顯示結果
+  |  1  2  3  4  5  6  7  8  9
+-------------------------------	
+1 |  1  2  3  4	 5  6  7  8  9
+2 |  2  4  6  8	10 12 14 16 18
+3 |  3  6  9 12	15 18 21 24 27
+4 |  4  8 12 16	20 24 28 32 36
+        （以下省略）
+
+程式碼
+/*
+    九九乘法表
+*/
+
+#include <stdio.h>
+
+int main(void)
+{
+     int i, j;
+
+    printf("  |");
+
+    for (i = 1; i <= 9; i++)
+          printf("%3d", i);
+    putchar('\n');
+
+    puts("-------------------------------");
+
+    for (i = 1; i <= 9; i++) {
+        printf("%d |", i);
+        for (j = 1; j <= 9; j++)
+            printf("%3d", i * j);
+        putchar('\n');
+    }
+
+    return (0);
+}
+
+執行結果
+ |  1  2  3  4  5  6  7  8  9
+------------------------------	
+1 | 1  2  3  4	5  6  7  8  9
+2 | 2  4  6  8 10 12 14 16 18
+3 | 3  6  9 12 15 18 21 24 27
+4 | 4  8 12 16 20 24 28 32 36
+5 | 5 10 15 20 25 30 35 40 45
+6 | 6 12 18 24 30 36 42 48 54
+7 | 7 14 21 28 35 42 49 56 63
+8 | 8 16 24 32 40 48 56 64 72        
+9 | 9 18 27 36 45 54 63 72 81    
+
+
+
+練習問題4-16
+請改寫List 4-17的程式（用*記號並列排出一個矩型），使其輸出為長大於寬的矩形。
+
+List4-17
+/*
+   製作矩形
+*/										
+
+#include  <stdio.h>	
+
+int main(void)	
+{
+    int i, j;
+    int width, height;
+    puts("開始製作矩形。");
+    printf("寬："); scanf("%d", &width);
+    printf("高："); scanf("%d", &height);
+
+    for (i = 1; i <= height; i++) {
+        for (j = 1; j <= width; j++)
+            putchar('*');
+        putchar('\n');
+    }
+
+    return (0);
+}
+
+顯示結果（for 問題）
+開始製作矩形。
+寬：3
+高：7
+*******
+*******
+*******
+
+程式碼
+/*
+   製作矩形
+*/										
+
+#include  <stdio.h>	
+
+int main(void)	
+{
+    int i, j;
+    int ln1, ln2, width, height;
+
+    puts("開始製作矩形。");
+    printf("寬：");    scanf("%d", &ln1);
+    printf("高：");    scanf("%d", &ln2);
+
+    if (ln1 < ln2) {
+        height = ln1;
+        width  = ln2;
+    } else {
+        height = ln2;
+        width  = ln1;
+    }
+
+    for (i = 1; i <= height; i++) {        /* 長方形為height行 */
+            putchar ('*');
+        for (j = 1; j <= width; j++);       /* 顯示width個* */
+            putchar ('*');
+        putchar('\n');
+    }
+
+    return (0);
+}
+
+執行範例
+開始製作矩形。
+寬：3
+高：7
+*******
+*******
+*******
+
+
+
+練習問題4-17
+請改寫List 4-18和List 4-19的程式，使其輸出的直角三角形之直角在右上或左上方。
+
+List 4-18
+/*
+ 　製作直角三角形（直角在左下方）
+*/										
+#include  <stdio.h>	
+int main(void)	
+{
+    int i, j, ln;
+    printf("直角三角形共幾列：");
+    scanf("%d", &1n);
+    for (i = 1; i <= 1n; i++) {
+        for (j = 1; j <= i; j++)
+            putchar('*');
+        putchar('\n');
+    }
+    return (0);
+}
+
+List 4-19
+/*
+　 製作直角三角形（直角在右下方）
+*/										
+#include  <stdio.h>	
+int main(void)	
+{
+    int i, j, ln;
+    printf("直角三角形共幾列：");
+    scanf("%d", &1n);
+    for (i = 1; i <= 1n; i++) {
+        for (j = 1; j <= 1n - i; j++)
+            putchar(' ');
+    for (j = 1; j <= i; j++)
+            putchar('*');
+    putchar('\n');
+    }
+    return (0);
+}
+
+程式碼之1（改寫List4-18）
+/*
+ 　製作直角三角形（直角在左上方）
+*/										
+#include  <stdio.h>	
+int main(void)	
+{
+    int i, j, ln;
+    printf("直角三角形共幾列：");
+    scanf("%d", &1n);
+
+    for (i = ln; i >= 1; i--) {                     /* i行 （i= ln, ln-1, ..., 1)  */
+        for (j = 1; j <= i; j++)                    /* 顯示i 個'*' */
+            putchar('*');
+        putchar('\n');                                /* 換行 */
+    }
+    return (0);
+}
+
+執行範例
+直角三角形共幾列：5
+*
+**
+***
+****
+*****
+
+
+程式碼之2（改寫List4-19）
+/*
+　 製作直角三角形（直角在右上方）
+*/										
+#include  <stdio.h>	
+int main(void)	
+{
+    int i, j, ln;
+    printf("直角三角形共幾列：");
+    scanf("%d", &1n);
+
+    for (i = 1; i <= 1n; i--) {                     /* i行 （i= ln, ln-1, ..., 1)  */
+        for (j = 1; j <= 1n - i; j++)              /* 顯示ln - i個' ' */
+            putchar(' ');
+    for (j = 1; j <= i; j++)                         /* 顯示i 個'*' */
+            putchar('*');
+    putchar('\n');                                     /* 換行 */  
+    }
+    return (0);
+}
+
+執行範例
+直角三角形共幾列：5
+    *
+   **
+  ***
+ ****
+*****
+
+
+
+
+練習問題4-18
+請寫一個程式，使其依照輸入列數來輸出一個金字塔形。
+
+顯示結果（for問題） 
+製作金字塔形。
+金字塔形共幾列？3
+  *
+ ***
+*****
+
+程式碼
+/*
+    依照輸入列數來輸出一個金字塔形
+*/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int i, j, height;
+
+    puts("製作金字塔形。");
+    printf("金字塔形共幾列？");
+    scanf("%d", &height);
+
+    for (i = 1; i <= height; i++) {                    /* i行 （i= 1, 2, ..., height)  */
+        for (j = 1; j <= height - i; j++)              /* 顯示height - i個' ' */
+            putchar(' ');
+        for (j = 1; j <= i * 2 - 1; j++)                /* 顯示i * 2 - 1個'*' */
+            putchar('*');
+    putchar('\n');                                            /* 換行 */  
+    }
+    return (0);
+}
+
+執行範例
+製作金字塔形。
+金字塔形共幾列？3
+  *
+ ***
+*****

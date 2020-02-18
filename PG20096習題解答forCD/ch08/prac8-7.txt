@@ -1,0 +1,27 @@
+/*
+璸衡眖夹非块块筁祘い瞷筁计じ材
+*/
+#include  <stdio.h>
+
+int main(void)
+{
+    int	 i, j, ch;
+    int	 cnt[10] = {0};	        /* 计じ瞷Ω计 */
+
+    while (1) {			/* 礚癹伴 */
+	ch = getchar();
+	if (ch == EOF) break;
+
+	if (ch >= '0'  &&  ch <= '9')
+  	    cnt[ch - '0']++;
+	}
+
+	puts("计じ瞷Ω计");
+	for (i = 0; i < 10; i++)
+ 	    printf("'%d':",i);
+            for (j = 0; j < cnt[i]; j++)
+                putchar('*');
+            putchar('\n');
+        }
+	return (0);
+}

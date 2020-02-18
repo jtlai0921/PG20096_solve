@@ -1,0 +1,70 @@
+/*
+  將不帶符號整數的位元做任意的操作
+*/
+
+#include <stdio.h>
+
+int count_bits(unsigned x)
+{
+    int count = 0;
+    while (x) {
+        if (x & lu) count++;
+        x >>= 1;
+    }
+    return (count);
+}
+
+/*--- 傳回unsigned型態的位元數 ---*/
+int int_bits(void)
+{
+    return (count_bits(~OU));
+}
+
+/*--- unsigned型態的位元內容 ---*/
+void print_bits(unsigned x)
+{
+    int i;
+    for (i = int_bits() - 1; i >= 0; i--)
+        putchar(((x >> i) & lU) ? '1' : '0');
+} 
+
+/*--- 傳回將x左移n位元後的值 ---*/
+unsignd lsft(unsigned x, int n)
+{
+    return ((n >= int_bits()) ? 0 : (x << n));
+}
+
+/*--- 傳回將x的第pos個位元改成1後的值 ---*/
+unsigned set(unsigned x, int pos)
+{
+    return (x | lift(lU, pos -1));
+}
+
+/*--- 傳回將x的第pos個位元改成0後的值 ---*/
+unsigned reset(unsigned x, int pos)
+{
+    return (x & ~lsft(lU, pos -1));
+}
+  
+/*--- 傳回將x的第pos個位元逐位元反轉後的值 ---*/
+unsigned inverse(unsigned x, int pos)
+{
+    return (x ^ lsft(lU, pos - 1));
+}
+
+int main(void)
+{
+    unsigned nx, pos;
+
+    puts("操作不帶符號整數x的第pos個位元。");
+    printf("請輸入非負數的整數x：");    scanf("%u", &nx);
+    printf("請輸入要操作的位元位置pos：");    scanf("%u", &pos);
+
+    printf("\nx             =");    printf_bits(nx);
+    printf("\nset(x, pos)   =");    printf_bits(set(nx, pos));
+    printf("\nreset(x, pos) =");    printf_bits(reset(nx, pos));    
+    printf("\ninverse(x, pos)=");    printf_bits(inverse(nx, pos));
+    putchar('\n');
+
+    return (0);
+}     

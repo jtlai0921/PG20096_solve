@@ -1,0 +1,11 @@
+
+/* 打招呼 */
+
+#include  <stdio.h>	
+
+int main(void)	
+{
+    printf("哈囉！\n你好。\n拜拜了。\n"); 	 
+
+    return (0);
+}

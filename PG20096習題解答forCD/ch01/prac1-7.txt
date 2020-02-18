@@ -1,0 +1,19 @@
+
+/*
+陪ボㄢ俱计计ぇ縩
+*/										
+#include  <stdio.h>	
+int main(void)	
+{
+    int n1, n2;
+    int seki;		/* 縩 */
+
+    puts("叫块ㄢ计");
+    printf("计1"); scanf("%d", &n1);
+    printf("计2"); scanf("%d", &n2);
+
+    seki  =  n1 * n2;	    /* 盢n1蛤n2ぇ縩seki */
+    printf("┮眔縩琌%d\n", seki); /* 陪ボ计ぇ縩 */
+    return (0);
+}
+
